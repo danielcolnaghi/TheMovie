@@ -20,8 +20,7 @@ class MovieAPI {
     func moviesFromPage(_ page: Int, success: @escaping ([Movie]) -> Void, error: @escaping (String) -> Void) {
 
         let url = "\(MovieAPI.apiURL)/3/discover/movie?api_key=\(MovieAPI.apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=\(page)"
-        
-        
+
         Alamofire.request(url).responseJSON { (response) in
 
 			let json = JSON(response.result.value!)
