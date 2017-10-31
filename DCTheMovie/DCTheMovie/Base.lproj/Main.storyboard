@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rYW-fT-t3Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rYW-fT-t3Z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-CondensedMedium</string>
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--The Movies-->
         <scene sceneID="tne-QT-ifu">
@@ -20,7 +26,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-tO-iKk">
@@ -49,8 +55,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-j4-e3Y">
-                                                    <rect key="frame" x="207" y="90" width="69" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-j4-e3Y">
+                                                    <rect key="frame" x="16" y="90" width="260" height="21"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -63,6 +69,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Vul-j4-e3Y" secondAttribute="bottom" constant="1" id="Cih-SW-sEG"/>
                                                 <constraint firstItem="EbQ-aU-NF3" firstAttribute="top" secondItem="36r-Zi-umr" secondAttribute="bottom" constant="8" id="Ljp-GI-wOu"/>
                                                 <constraint firstItem="EbQ-aU-NF3" firstAttribute="leading" secondItem="bpP-LN-rQw" secondAttribute="leadingMargin" id="NN8-fG-E53"/>
+                                                <constraint firstItem="Vul-j4-e3Y" firstAttribute="leading" secondItem="bpP-LN-rQw" secondAttribute="leadingMargin" constant="8" id="Zbi-Xk-Yak"/>
                                                 <constraint firstItem="36r-Zi-umr" firstAttribute="top" secondItem="bpP-LN-rQw" secondAttribute="topMargin" id="aDu-4d-HEd"/>
                                                 <constraint firstItem="wnZ-7C-UKP" firstAttribute="leading" secondItem="EbQ-aU-NF3" secondAttribute="trailing" constant="8" id="fjd-8q-cV4"/>
                                                 <constraint firstItem="36r-Zi-umr" firstAttribute="leading" secondItem="bpP-LN-rQw" secondAttribute="leadingMargin" id="gQx-as-3PC"/>
@@ -110,7 +117,7 @@
                 <navigationController title="The Movies" id="rYW-fT-t3Z" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l8Q-RX-uPM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -130,7 +137,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VY1-Nt-LxL"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="5ve-mj-k9W">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HbK-oM-lp4">

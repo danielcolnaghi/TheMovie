@@ -25,10 +25,10 @@
 
 import UIKit
 
-class Movie {
+struct Movie {
     let title : String
     let overview : String
-    let coverPath : String
+    var coverPath : String?
 	let voteAvarage : String
 	let releaseDate : String
 	var backdropPath : String?
@@ -37,7 +37,11 @@ class Movie {
         
         title = dic["title"] as! String
         overview = dic["overview"] as! String
-        coverPath = dic["poster_path"] as! String
+        
+        if let poster_path = dic["poster_path"] as? String {
+            coverPath = poster_path
+        }
+        
 		voteAvarage = "\(dic["vote_average"] ?? "")"
 		releaseDate = dic["release_date"] as! String
 		
@@ -48,9 +52,13 @@ class Movie {
 	
 	func loadCoverImage(success: @escaping (UIImage) -> Void) -> Void {
 
-		MovieAPI().downloadImage(coverPath) { (data) in
-			success(data)
-		}
+        if let path = coverPath {
+            MovieAPI().downloadImage(path) { (data) in
+                success(data)
+            }
+        } else {
+            success(UIImage(named: "placeholder")!)
+        }
 	}
 
 	func loadBackdropImage(success: @escaping (UIImage) -> Void) -> Void {
@@ -59,6 +67,8 @@ class Movie {
 			MovieAPI().downloadImage(path) { (data) in
 				success(data)
 			}
-		}
+        } else {
+            success(UIImage(named: "placeholder")!)
+        }
 	}
 }
