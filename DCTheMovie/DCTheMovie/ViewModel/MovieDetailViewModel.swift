@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailViewModel {
+struct MovieDetailViewModel {
 	
 	let movie : Movie
 	

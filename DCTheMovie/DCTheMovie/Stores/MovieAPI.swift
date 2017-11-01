@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 
-class MovieAPI {
+struct MovieAPI {
     
     private static let apiURL = "https://api.themoviedb.org"
     private static let apiKey = "1f54bd990f1cdfb230adb312546d765d"

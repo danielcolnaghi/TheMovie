@@ -10,8 +10,8 @@ import UIKit
 
 class MoviesViewModel {
 
-	var movies : [Movie] = [Movie]()
-	var page = 1
+	var movies: [Movie] = [Movie]()
+    var page: Int = 1
 	
 	init() {
 		
@@ -27,7 +27,7 @@ class MoviesViewModel {
 	}
 	
     func loadMoreMovies(success: @escaping () -> Void) {
-		self.page += 1
+        self.page += self.page < Int.max ? 1 : 0
 		self.loadMovies { () in
 			success()
 		}

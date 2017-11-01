@@ -22,7 +22,6 @@ class MovieViewController: UIViewController {
 		moviesVM.loadMovies { () in
 			self.tblMovies.reloadData()
 		}
-		
 	}
 	
     override func didReceiveMemoryWarning() {
