@@ -23,14 +23,18 @@ struct MovieAPI {
 
         Alamofire.request(url).responseJSON { (response) in
 
-			let json = JSON(response.result.value!)
+            guard let result = response.result.value else {
+                error("Error getting results from server.")
+                return
+            }
+            
+			let json = JSON(result)
 			var movies = [Movie]()
-			
+            
 			if let resData = json["results"].arrayObject {
 				for obj in resData as! [[String:AnyObject]] {
-				
-					let m = Movie(dic: obj)
-					movies.insert(m, at: 0)
+                    let m = Movie(dic: obj)
+                    movies.insert(m, at: 0)
 				}
 				
 				success(movies)

@@ -26,33 +26,33 @@
 import UIKit
 
 struct Movie: Codable {
-    let title : String
-    let overview : String
+    let title : String?
+    let overview : String?
     var coverPath : String?
 	var voteAvarage : String
 	let releaseDate : String
 	var backdropPath : String?
     
     init(dic : Dictionary<String, Any>) {
-        
+
         title = dic["title"] as? String ?? ""
         overview = dic["overview"] as? String ?? ""
-        
+
         if let poster_path = dic["poster_path"] as? String {
             coverPath = poster_path
         }
-        
+
         if let vote = dic["vote_average"] as? Float {
             voteAvarage = String(format: "%.1f", vote)
         } else {
             voteAvarage = "-"
         }
-        
-		releaseDate = dic["release_date"] as? String ?? ""
-        
-		if let back = dic["backdrop_path"] as? String {
-			backdropPath = back
-		}
+
+        releaseDate = dic["release_date"] as? String ?? ""
+
+        if let back = dic["backdrop_path"] as? String {
+            backdropPath = back
+        }
     }
 	
 	func loadCoverImage(success: @escaping (UIImage?) -> Void) -> Void {
@@ -76,4 +76,11 @@ struct Movie: Codable {
             success(UIImage(named: "placeholder"))
         }
 	}
+}
+
+extension Movie {
+    enum MyStructKeys: String, CodingKey {
+        case title = "title"
+        case overview = "overview"
+    }
 }

@@ -18,14 +18,14 @@ class MovieCell : UITableViewCell {
 	@IBOutlet weak var lblReleaseDate: UILabel!
 	
 	func loadCellWithMovie(_ movie : Movie) {
-	
+
+        self.lblTitle.text = movie.title
+        self.lblVote.text = "Vote Avarage \(movie.voteAvarage)"
+        self.lblReleaseDate.text = "\(movie.releaseDate)"
+        self.imgBackground.image = nil
+        
 		movie.loadCoverImage { (image) in
 			self.imgBackground.image = image
 		}
-		
-		self.lblTitle.text = movie.title
-		self.lblVote.text = "Vote Avarage \(movie.voteAvarage)"
-		self.lblReleaseDate.text = "\(movie.releaseDate)"
 	}
-	
 }
