@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OHHTTPStubs
 
 class MovieViewController: UIViewController {
 
@@ -15,13 +16,24 @@ class MovieViewController: UIViewController {
 	var loadingMore: Bool = false
 	
 	@IBOutlet weak var tblMovies: UITableView!
-	
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		moviesVM.loadMovies { () in
-			self.tblMovies.reloadData()
-		}
+	
+        
+        stub(condition: pathEndsWith("/movie")) { request in
+            return OHHTTPStubsResponse(
+                fileAtPath: OHPathForFile("big.json", type(of: self))!,
+                statusCode: 200,
+                headers: ["Content-Type":"application/json"]
+            )
+        }
+        
+        
+        moviesVM.loadMovies { () in
+            self.tblMovies.reloadData()
+            OHHTTPStubs.removeAllStubs()
+        }
 	}
 	
     override func didReceiveMemoryWarning() {

@@ -19,11 +19,11 @@ class MoviesViewModel {
 	
     func loadMovies(success: @escaping () -> Void) {
         MovieAPI().moviesFromPage(self.page, success: { (responseMovies) in
-			self.movies.append(contentsOf: responseMovies)
-			success()
-		}, error: { (error) in
-			// TODO: alert user to retry
-		})
+            self.movies.append(contentsOf: responseMovies)
+            success()
+        }, error: { (error) in
+            // TODO: alert user to retry
+        })
 	}
 	
     func loadMoreMovies(success: @escaping () -> Void) {

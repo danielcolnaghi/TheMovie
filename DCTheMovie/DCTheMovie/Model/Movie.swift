@@ -62,7 +62,7 @@ struct Movie: Codable {
                 success(data)
             }
         } else {
-            success(UIImage(named: "placeholder"))
+            success(UIImage(named: "coverplaceholder"))
         }
 	}
 
@@ -73,13 +73,13 @@ struct Movie: Codable {
 				success(data)
 			}
         } else {
-            success(UIImage(named: "placeholder"))
+            success(UIImage(named: "wideplaceholder"))
         }
 	}
 }
 
 extension Movie {
-    enum MyStructKeys: String, CodingKey {
+    enum MovieKeys: String {
         case title = "title"
         case overview = "overview"
     }
