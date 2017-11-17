@@ -1,27 +1,33 @@
 {
     "page":1,
-    "total_results":3,
+    "total_results":5,
     "total_pages":1,
     "results":[
-                   {
-                       "vote_count":83,"id":13009,"video":false,"vote_average":4.2,"title":"Zombie Strippers!","popularity":6.295871,
-                       "poster_path":"\/wmuidysXkosHFgkxTtghR04M16x.jpg","original_language":"en","original_title":"Zombie Strippers!",
-                       "genre_ids":[35,27],"backdrop_path":"\/9iz2DaLLvGnJJAPwawVEE1WFWIQ.jpg","adult":false,
-                       "overview":"In the not too distant future a secret government re-animation chemo-virus gets released into conservative Sartre, Nebraska and lands in an underground strip club. As the virus begins to spread, turning the strippers into \"Super Zombie Strippers\" the girls struggle with whether or not to conform to the new \"fad\" even if it means there's no turning back.",
-                       "release_date":"2008-04-18"
-                   },
-                   {
-                       "vote_count":53,"id":26860,"video":false,"vote_average":5.9,"title":"White Zombie","popularity":4.675778,
-                       "poster_path":"\/s5DnfWHGeCExlweIFF4JOHKyx3H.jpg","original_language":"en","original_title":"White Zombie",
-                       "genre_ids":[27],"backdrop_path":"\/lN6psCG1e6lNopFeLKeWFLsbfLK.jpg","adult":false,"overview":"In Haiti, a wealthy landowner convinces a sorcerer to lure the American woman he has fallen for away from her fiance, only to have the madman decide to keep the woman for himself, as a zombie.",
-                       "release_date":"1932-08-04"
-                   },
-                   {
-                       "vote_count":0,"id":485809,"video":false,"vote_average":0,"title":"Zombie Bite","popularity":3.63746,
-                       "poster_path":"\/fdJlgLScCNDdH0LFhqWLFrURh94.jpg","original_language":"en","original_title":"Zombie Bite",
-                       "genre_ids":[],"backdrop_path":null,"adult":false,"overview":"During a zombie pandemic, security consultant Jack Romero is bitten by a Zombie and has 3 days before he either turns into one or not, depending on his blood type, which he doesn't know. Holding up in his home during a statewide quarantine, he must keep his wife, who is safely away at a military base, unaware of his condition, fend off an occasional zombie, as well as other characters, while the clock ticks away at his fate. Written, produced and directed by King Jeff, this film strays away from the zombie movie cliches and is fresh and original visually as well as its soundtrack and focus on character.",
-                       "release_date":"2017-11-23"
-                   }
-               ]
+               {
+               "vote_count":83,"id":13009,"video":false,"vote_average":4.2,"title":"Zombie Strippers!","popularity":6.295871,
+               "poster_path":"\/wmuidysXkosHFgkxTtghR04M16x.jpg","original_language":"en","original_title":"Zombie Strippers!",
+               "genre_ids":[35,27],"backdrop_path":"\/9iz2DaLLvGnJJAPwawVEE1WFWIQ.jpg","adult":false,
+               "overview":"In the not too distant future a secret government re-animation chemo-virus gets released into conservative Sartre, Nebraska and lands in an underground strip club. As the virus begins to spread, turning the strippers into \"Super Zombie Strippers\" the girls struggle with whether or not to conform to the new \"fad\" even if it means there's no turning back.",
+               "release_date":"2008-04-18"
+               },
+               {
+               "vote_count":53,"id":26860,"video":false,"vote_average":5.9,"title":"White Zombie","popularity":4.675778,
+               "poster_path":"\/s5DnfWHGeCExlweIFF4JOHKyx3H.jpg","original_language":"en","original_title":"White Zombie",
+               "genre_ids":[27],"backdrop_path":"\/lN6psCG1e6lNopFeLKeWFLsbfLK.jpg","adult":false,"overview":"In Haiti, a wealthy landowner convinces a sorcerer to lure the American woman he has fallen for away from her fiance, only to have the madman decide to keep the woman for himself, as a zombie.",
+               "release_date":"1932-08-04"
+               },
+               {
+               "vote_count":0,"id":485809,"video":false,"vote_average":0,"title":"Zombie Bite","popularity":3.63746,
+               "poster_path":"\/fdJlgLScCNDdH0LFhqWLFrURh94.jpg","original_language":"en","original_title":"Zombie Bite",
+               "genre_ids":[],"backdrop_path":null,"adult":false,"overview":"During a zombie pandemic, security consultant Jack Romero is bitten by a Zombie and has 3 days before he either turns into one or not, depending on his blood type, which he doesn't know. Holding up in his home during a statewide quarantine, he must keep his wife, who is safely away at a military base, unaware of his condition, fend off an occasional zombie, as well as other characters, while the clock ticks away at his fate. Written, produced and directed by King Jeff, this film strays away from the zombie movie cliches and is fresh and original visually as well as its soundtrack and focus on character.",
+               "release_date":"2017-11-23"
+               },
+               {
+               "id":5809
+               },
+               {
+               "vote_count":0,"id":485809,"title":"?!?!?","popularity":1,"release_date":"2000-01-01"
+               },
+            ]
     
 }

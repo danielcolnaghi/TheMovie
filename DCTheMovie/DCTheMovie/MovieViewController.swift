@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OHHTTPStubs
 
 class MovieViewController: UIViewController {
 
@@ -19,26 +18,11 @@ class MovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-	
-        
-        stub(condition: pathEndsWith("/movie")) { request in
-            return OHHTTPStubsResponse(
-                fileAtPath: OHPathForFile("big.json", type(of: self))!,
-                statusCode: 200,
-                headers: ["Content-Type":"application/json"]
-            )
-        }
-        
         
         moviesVM.loadMovies { () in
             self.tblMovies.reloadData()
-            OHHTTPStubs.removeAllStubs()
         }
 	}
-	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let vc = segue.destination as! MovieDetailsViewController

@@ -26,8 +26,4 @@ class MovieDetailsViewController: UIViewController {
 		lblTitle.text = viewModel.movie.title
 		txtOverview.text = viewModel.movie.overview
 	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-	}
 }

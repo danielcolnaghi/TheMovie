@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+#if DEBUG
+import OHHTTPStubs
+#endif
 
 class MovieAPI {
     
@@ -17,6 +20,27 @@ class MovieAPI {
     private static let apiKey = "1f54bd990f1cdfb230adb312546d765d"
     private static let apiImageURL = "https://image.tmdb.org/t/p/w300"
 	private static let defaultProperties = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false"
+    
+    init() {
+        
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("STUBS") {
+            stub(condition: pathEndsWith("/movie")) { request in
+                return OHHTTPStubsResponse(
+                    fileAtPath: OHPathForFile("movies.json", type(of: self))!,
+                    statusCode: 200,
+                    headers: ["Content-Type":"application/json"]
+                )
+            }
+        }
+        #endif
+    }
+    
+    deinit {
+        #if DEBUG
+        OHHTTPStubs.removeAllStubs()
+        #endif
+    }
     
     func moviesFromPage(_ page: Int, success: @escaping ([Movie]) -> Void, error: @escaping (String) -> Void) {
 

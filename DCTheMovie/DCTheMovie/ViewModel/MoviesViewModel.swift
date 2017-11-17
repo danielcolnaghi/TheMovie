@@ -13,10 +13,6 @@ class MoviesViewModel {
 	var movies: [Movie] = [Movie]()
     var page: Int = 1
 	
-	init() {
-		
-	}
-	
     func loadMovies(success: @escaping () -> Void) {
         MovieAPI().moviesFromPage(self.page, success: { (responseMovies) in
             self.movies.append(contentsOf: responseMovies)

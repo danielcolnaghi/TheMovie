@@ -43,7 +43,7 @@ class DCTheMovieTests: XCTestCase {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         MovieAPI().moviesFromPage(1, success: { (movies) in
-            XCTAssert(movies.count == 3, "Valid return from API")
+            XCTAssert(movies.count == 5, "Valid return from API")
             exp.fulfill()
         }) { (error) in
             XCTFail("Error loading movies from API")
@@ -71,7 +71,7 @@ class DCTheMovieTests: XCTestCase {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         MovieAPI().moviesSearch(To:"zombie", page: 1, success: { (movies) in
-            XCTAssert(movies.count == 3, "Valid return from API")
+            XCTAssert(movies.count == 5, "Valid return from API")
             exp.fulfill()
         }) { (error) in
             XCTFail("Error loading movies from API")
