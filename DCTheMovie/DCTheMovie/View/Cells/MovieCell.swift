@@ -24,11 +24,7 @@ class MovieCell : UITableViewCell {
         self.lblReleaseDate.text = "\(movie.releaseDate)"
         self.imgBackground.image = nil
         
-        if self.reuseIdentifier == "moviecellcover" {
-            movie.loadBackdropImage(success: { (image) in
-                self.imgBackground.image = image
-            })
-        } else {
+        if self.reuseIdentifier == "moviecell" {
             movie.loadCoverImage { (image) in
                 self.imgBackground.image = image
             }

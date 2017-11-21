@@ -13,14 +13,18 @@ class MovieViewController: UIViewController {
 	var moviesVM: MoviesViewModel = MoviesViewModel()
 	var selectedItem: Movie!
 	var loadingMore: Bool = false
+    private var loadingPlaceholder = true
 	
 	@IBOutlet weak var tblMovies: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        moviesVM.loadMovies { () in
-            self.tblMovies.reloadData()
+        fillTableUsingPlaceholder {
+            self.moviesVM.loadMovies { () in
+                self.loadingPlaceholder = false
+                self.tblMovies.reloadData()
+            }
         }
 	}
 	
@@ -28,22 +32,37 @@ class MovieViewController: UIViewController {
 		let vc = segue.destination as! MovieDetailsViewController
 		vc.viewModel = MovieDetailViewModel(movie: selectedItem)
 	}
+    
+    func fillTableUsingPlaceholder(done:@escaping () -> Void) {
+        tblMovies.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
+            done()
+        }
+    }
 }
 
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesVM.movies.count
+        
+        return loadingPlaceholder ? 5 : moviesVM.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
-        cell.loadCellWithMovie(moviesVM.movies[indexPath.row])
+        var cell : MovieCell!
         
-        if (!loadingMore && indexPath.row == moviesVM.movies.count - 1) {
-            moviesVM.loadMoreMovies {
-                self.loadingMore = false
-                self.tblMovies.reloadData()
+        if loadingPlaceholder {
+            cell = tableView.dequeueReusableCell(withIdentifier: "moviecellplaceholder") as! MovieCell
+        } else {
+        
+            cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
+            cell.loadCellWithMovie(moviesVM.movies[indexPath.row])
+            
+            if (!loadingMore && indexPath.row == moviesVM.movies.count - 1) {
+                moviesVM.loadMoreMovies {
+                    self.loadingMore = false
+                    self.tblMovies.reloadData()
+                }
             }
         }
         
@@ -51,8 +70,12 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        selectedItem = moviesVM.movies[indexPath.row]
-        performSegue(withIdentifier: "segueMovieDetails", sender: self)
+        if loadingPlaceholder {
+            tableView.deselectRow(at: indexPath, animated: false)
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            selectedItem = moviesVM.movies[indexPath.row]
+            performSegue(withIdentifier: "segueMovieDetails", sender: self)
+        }
     }
 }

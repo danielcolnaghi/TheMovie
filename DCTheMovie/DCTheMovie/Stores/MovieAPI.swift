@@ -18,7 +18,7 @@ class MovieAPI {
     
     private static let apiURL = "https://api.themoviedb.org"
     private static let apiKey = "1f54bd990f1cdfb230adb312546d765d"
-    private static let apiImageURL = "https://image.tmdb.org/t/p/w300"
+    private static let apiImageURL = "https://image.tmdb.org/t/p/w"
 	private static let defaultProperties = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false"
     
     init() {
@@ -101,13 +101,20 @@ class MovieAPI {
         return movies
     }
     
-	func downloadImage(_ imagePath: String, success: @escaping (UIImage) -> Void) -> Void {
+    func downloadImage(_ imagePath: String, withSize size: Int, success: @escaping (UIImage) -> Void, error: @escaping (String) -> Void) -> Void {
 	
-		let url = "\(MovieAPI.apiImageURL)\(imagePath)"
+		let url = "\(MovieAPI.apiImageURL)\(size)\(imagePath)"
 		Alamofire.request(url).responseImage { (response) in
-			if let image = response.result.value {
-				success(image)
-			}
+            
+            if let e = response.result.error {
+                error(e.localizedDescription)
+            } else {
+                if let image = response.result.value {
+                    success(image)
+                } else {
+                    error("Loading Image Error - Result value nil")
+                }
+            }
 		}
 
 	}
