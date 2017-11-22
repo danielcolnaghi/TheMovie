@@ -42,7 +42,9 @@ class DCTheMovieTests: XCTestCase {
     func testMoviesFromPage() {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
-        MovieAPI().moviesFromPage(1, success: { (movies) in
+        
+        let param = MovieParams(page: 1, query: "", type: "discover")
+        MovieAPI().moviesWithParams(param, success: { (movies) in
             XCTAssert(movies.count == 5, "Valid return from API")
             exp.fulfill()
         }) { (error) in
@@ -56,7 +58,9 @@ class DCTheMovieTests: XCTestCase {
     func testMoviesFromPageError() {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "invalid.json")
-        MovieAPI().moviesFromPage(1, success: { (movies) in
+        
+        let param = MovieParams(page: 1, query: "", type: "discover")
+        MovieAPI().moviesWithParams(param, success: { (movies) in
             XCTFail("This test should fail!")
             exp.fulfill()
         }) { (error) in
@@ -70,7 +74,9 @@ class DCTheMovieTests: XCTestCase {
     func testMoviesSearch() {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
-        MovieAPI().moviesSearch(To:"zombie", page: 1, success: { (movies) in
+        
+        let param = MovieParams(page: 1, query: "", type: "search")
+        MovieAPI().moviesWithParams(param, success: { (movies) in
             XCTAssert(movies.count == 5, "Valid return from API")
             exp.fulfill()
         }) { (error) in
@@ -84,7 +90,9 @@ class DCTheMovieTests: XCTestCase {
     func testMoviesSearchError() {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "invalid.json")
-        MovieAPI().moviesSearch(To:"zombie", page: 1, success: { (movies) in
+        
+        let param = MovieParams(page: 1, query: "", type: "search")
+        MovieAPI().moviesWithParams(param, success: { (movies) in
             XCTFail("This test should fail!")
             exp.fulfill()
         }) { (error) in

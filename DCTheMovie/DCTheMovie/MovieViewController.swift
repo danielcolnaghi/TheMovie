@@ -16,9 +16,12 @@ class MovieViewController: UIViewController {
     private var loadingPlaceholder = true
 	
 	@IBOutlet weak var tblMovies: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        moviesVM.delegate = self
         
         fillTableUsingPlaceholder {
             self.moviesVM.loadMovies { () in
@@ -41,10 +44,45 @@ class MovieViewController: UIViewController {
     }
 }
 
+extension MovieViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        search()
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        search()
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func search() {
+        if let t = searchBar.text, !t.isEmpty {
+            moviesVM.params.type = "search"
+            moviesVM.params.query = t
+        } else {
+            moviesVM.params.type = "discover"
+            moviesVM.params.query = ""
+        }
+        
+        moviesVM.params.page = 1
+        
+        self.moviesVM.removeAllMovies()
+        self.moviesVM.loadMovies { () in
+            self.tblMovies.reloadData()
+        }
+    }
+}
+
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return loadingPlaceholder ? 5 : moviesVM.movies.count
+        return loadingPlaceholder ? 5 : moviesVM.countMovies()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,16 +92,8 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
         if loadingPlaceholder {
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecellplaceholder") as! MovieCell
         } else {
-        
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
-            cell.loadCellWithMovie(moviesVM.movies[indexPath.row])
-            
-            if (!loadingMore && indexPath.row == moviesVM.movies.count - 1) {
-                moviesVM.loadMoreMovies {
-                    self.loadingMore = false
-                    self.tblMovies.reloadData()
-                }
-            }
+            cell.loadCellWithMovie(moviesVM.movieAtIndex(indexPath.row))
         }
         
         return cell
@@ -74,8 +104,14 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
             tableView.deselectRow(at: indexPath, animated: false)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
-            selectedItem = moviesVM.movies[indexPath.row]
+            selectedItem = moviesVM.movieAtIndex(indexPath.row)
             performSegue(withIdentifier: "segueMovieDetails", sender: self)
         }
+    }
+}
+
+extension MovieViewController: AsyncResponse {
+    func doneLoadMoreMovies() {
+        self.tblMovies.reloadData()
     }
 }
