@@ -44,8 +44,9 @@ class DCTheMovieTests: XCTestCase {
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         
         let param = MovieParams(page: 1, query: "", type: "discover")
-        MovieAPI().moviesWithParams(param, success: { (movies) in
-            XCTAssert(movies.count == 5, "Valid return from API")
+        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
+            XCTAssert(movies.count == 5, "Total movies test")
+            XCTAssert(pages == 1, "Page count test")
             exp.fulfill()
         }) { (error) in
             XCTFail("Error loading movies from API")
@@ -60,7 +61,7 @@ class DCTheMovieTests: XCTestCase {
         stubRequestFor(path: "/movie", jsonFile: "invalid.json")
         
         let param = MovieParams(page: 1, query: "", type: "discover")
-        MovieAPI().moviesWithParams(param, success: { (movies) in
+        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
             XCTFail("This test should fail!")
             exp.fulfill()
         }) { (error) in
@@ -76,8 +77,9 @@ class DCTheMovieTests: XCTestCase {
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         
         let param = MovieParams(page: 1, query: "", type: "search")
-        MovieAPI().moviesWithParams(param, success: { (movies) in
-            XCTAssert(movies.count == 5, "Valid return from API")
+        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
+            XCTAssert(movies.count == 5, "Total movies test")
+            XCTAssert(pages == 1, "Page count test")
             exp.fulfill()
         }) { (error) in
             XCTFail("Error loading movies from API")
@@ -92,7 +94,7 @@ class DCTheMovieTests: XCTestCase {
         stubRequestFor(path: "/movie", jsonFile: "invalid.json")
         
         let param = MovieParams(page: 1, query: "", type: "search")
-        MovieAPI().moviesWithParams(param, success: { (movies) in
+        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
             XCTFail("This test should fail!")
             exp.fulfill()
         }) { (error) in
@@ -103,10 +105,106 @@ class DCTheMovieTests: XCTestCase {
         waitForIt()
     }
     
+    func testMovieViewModel() {
+        let exp = expectation(description: "Get data from stubs")
+        stubRequestFor(path: "/movie", jsonFile: "movies.json")
+        
+       let mvm = MoviesViewModel()
+        mvm.loadMovies {
+            
+            var count = mvm.countMovies()
+            XCTAssert(count == 5, "Total movies from [Movies] is correct")
+            
+            if let movie = mvm.movieAtIndex(0) {
+                XCTAssert(movie.title == "?!?!?", "Movie at index is correct")
+            } else {
+                XCTFail("It should return a movie")
+            }
+            
+            mvm.removeAllMovies()
+            count = mvm.countMovies()
+            XCTAssert(count == 0, "Removed all itens from [Movies]")
+            
+            XCTAssert(mvm.movieAtIndex(0) == nil, "Removed all itens from [Movies]")
+            
+            exp.fulfill()
+        }
+        
+        waitForIt()
+    }
+    
+    func testMovieModelBackdropImage() {
+        
+        let exp = expectation(description: "Load image from invalid path")
+        let dic : Dictionary<String, String> = ["invalid":"data"]
+        
+        let movie = Movie(dic: dic)
+        
+        movie.loadBackdropImage { (image) in
+            
+            XCTAssert(image!.isEqual(UIImage(named: "wideplaceholder")), "Fail to load image, returned a placeholder")
+            exp.fulfill()
+        }
+        
+        waitForIt()
+    }
+    
+    func testMovieModelBackdropImageImageNotFound() {
+        
+        let exp = expectation(description: "Load image from invalid path")
+        let dic : Dictionary<String, String> = ["backdrop_path":"/lN6psCG1e6lNopFeLKeWFLsbfLKkkkkk.jpg"]
+        
+        let movie = Movie(dic: dic)
+        
+        movie.loadBackdropImage { (image) in
+            
+            XCTAssert(image!.isEqual(UIImage(named: "wideplaceholder")), "Fail to load image, returned a placeholder")
+            exp.fulfill()
+        }
+        
+        waitForIt()
+    }
+    
+    func testMovieModelCoverImage() {
+        
+        let exp = expectation(description: "Load image from invalid path")
+        let dic : Dictionary<String, String> = ["invalid":"data"]
+        
+        let movie = Movie(dic: dic)
+        movie.loadCoverImage { (image) in
+            
+            XCTAssert(image!.isEqual(UIImage(named: "coverplaceholder")), "Fail to load image, returned a placeholder")
+            exp.fulfill()
+        }
+        
+        waitForIt()
+    }
+    
+    func testMovieModelCoverImageImageNotFound() {
+        
+        let exp = expectation(description: "Load image from invalid path")
+        let dic : Dictionary<String, String> = ["poster_path":"/fdJlgLScCNDdH0LFhqWLFrURh94kkkkk.jpg"]
+        
+        let movie = Movie(dic: dic)
+        movie.loadCoverImage { (image) in
+            
+            XCTAssert(image!.isEqual(UIImage(named: "coverplaceholder")), "Fail to load image, returned a placeholder")
+            exp.fulfill()
+        }
+        
+        waitForIt()
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            
+            let mvm = MoviesViewModel()
+            mvm.loadMovies {}
+            
+            stubRequestFor(path: "/movie", jsonFile: "movies.json")
+            let param = MovieParams(page: 1, query: "", type: "search")
+            MovieAPI().moviesWithParams(param, success: { (movies, pages) in }) { (error) in }
         }
     }
     

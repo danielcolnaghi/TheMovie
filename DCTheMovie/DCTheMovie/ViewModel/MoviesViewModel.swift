@@ -17,12 +17,14 @@ class MoviesViewModel {
     var delegate: AsyncResponse?
 
 	private var movies: [Movie] = [Movie]()
+    private var pages: Int = 0
     var params = MovieParams(page: 1, query: "", type: "discover")
 	
     func loadMovies(success: @escaping () -> Void) {
         
-        MovieAPI().moviesWithParams(params, success: { (responseMovies) in
+        MovieAPI().moviesWithParams(params, success: { (responseMovies, responsePages) in
             self.movies.append(contentsOf: responseMovies)
+            self.pages = responsePages
             success()
         }) { (error) in
             // TODO: alert user to retry
@@ -30,10 +32,14 @@ class MoviesViewModel {
 	}
 	
     func loadMoreMovies(success: @escaping () -> Void) {
-        self.params.page += 1
-		self.loadMovies { () in
-			success()
-		}
+        
+        if self.params.page < pages {
+        
+            self.params.page += 1
+            self.loadMovies { () in
+                success()
+            }
+        }
 	}
     
     func removeAllMovies() {
@@ -44,9 +50,10 @@ class MoviesViewModel {
         return movies.count
     }
     
-    func movieAtIndex(_ index: Int) -> Movie {
+    func movieAtIndex(_ index: Int) -> Movie? {
+
+        guard movies.count > 0 else { return nil }
         
-        // verify if there is more pages to load otherwise this will create an infinity loop
         if movies.count < index + 2 {
             loadMoreMovies {
                 self.delegate?.doneLoadMoreMovies()

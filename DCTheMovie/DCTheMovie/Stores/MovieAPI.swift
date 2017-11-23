@@ -38,6 +38,14 @@ class MovieAPI {
                     headers: ["Content-Type":"application/json"]
                 )
             }
+        } else if ProcessInfo.processInfo.arguments.contains("STUBS-BIG") {
+            stub(condition: pathEndsWith("/movie")) { request in
+                return OHHTTPStubsResponse(
+                    fileAtPath: OHPathForFile("big.json", type(of: self))!,
+                    statusCode: 200,
+                    headers: ["Content-Type":"application/json"]
+                )
+            }
         }
         #endif
     }
@@ -48,7 +56,7 @@ class MovieAPI {
         #endif
     }
     
-    func moviesWithParams(_ params: MovieParams, success: @escaping ([Movie]) -> Void, error: @escaping (String) -> Void) {
+    func moviesWithParams(_ params: MovieParams, success: @escaping (_ movies: [Movie],_ pages: Int) -> Void, error: @escaping (String) -> Void) {
         
         let url = "\(MovieAPI.apiURL)\(params.type)/movie?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)&query=\(params.query)&page=\(params.page)"
         
@@ -59,8 +67,8 @@ class MovieAPI {
                 return
             }
             
-            if let movies = self.parseMovies(result) {
-                success(movies)
+            if let values = self.parseMovies(result) {
+                success(values.movies, values.pages)
             } else {
                 error("Error getting results from JSON response.")
             }
@@ -68,7 +76,7 @@ class MovieAPI {
         }
     }
     
-    func parseMovies(_ result: Any) -> [Movie]? {
+    func parseMovies(_ result: Any) -> (movies: [Movie], pages: Int)? {
         let json = JSON(result)
 
         if let error = json.error {
@@ -77,15 +85,18 @@ class MovieAPI {
         }
         
         var movies = [Movie]()
+        var pages = 0
         
         if let resData = json["results"].arrayObject {
             for obj in resData as! [[String:AnyObject]] {
                 let m = Movie(dic: obj)
                 movies.insert(m, at: 0)
             }
+            
+            pages = json["total_pages"].intValue
         }
         
-        return movies
+        return (movies, pages)
     }
     
     func downloadImage(_ imagePath: String, withSize size: Int, success: @escaping (UIImage) -> Void, error: @escaping (String) -> Void) -> Void {

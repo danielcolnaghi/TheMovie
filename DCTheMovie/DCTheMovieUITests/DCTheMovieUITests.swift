@@ -20,23 +20,41 @@ class DCTheMovieUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testTableViewAndDetails() {
+        
+        let app = XCUIApplication()
+        app.launchArguments.append("STUBS")
+        app.launch()
 
+        let theMoviesButton = app.navigationBars["Movie"].buttons["The Movies"]
+        
+        app.tables.staticTexts["?!?!?"].tap()
+        theMoviesButton.tap()
+
+        app.tables.staticTexts["Zombie Bite"].tap()
+        theMoviesButton.tap()
+        
+        app.tables.staticTexts["White Zombie"].tap()
+        theMoviesButton.tap()
+        
+        app.tables.staticTexts["Zombie Strippers!"].tap()
+        theMoviesButton.tap()
+    }
+    
+    
+    func testSearchBar() {
+        
         let app = XCUIApplication()
         app.launchArguments.append("STUBS")
         app.launch()
         
-        let theMoviesButton = app.navigationBars["Movie"].buttons["The Movies"]
-                
-        let tablesQuery = app.tables
-        tablesQuery.children(matching: .cell).element(boundBy: 2).staticTexts["Vote Avarage 0.0"].tap()
-        theMoviesButton.tap()
-        tablesQuery.children(matching: .cell).element(boundBy: 3).staticTexts["Vote Avarage 5.9"].tap()
-        theMoviesButton.tap()
-        tablesQuery.children(matching: .cell).element(boundBy: 0).staticTexts["Vote Avarage -"].tap()
-        theMoviesButton.tap()
+        let searchForZombiesOrMoviesSearchField = app.tables.searchFields["search for zombies or movies"]
+        searchForZombiesOrMoviesSearchField.tap()
+        searchForZombiesOrMoviesSearchField.typeText("zombies")
+        app.typeText("\r")
+        searchForZombiesOrMoviesSearchField.tap()
         
         
     }
-    
+
 }

@@ -93,7 +93,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecellplaceholder") as! MovieCell
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
-            cell.loadCellWithMovie(moviesVM.movieAtIndex(indexPath.row))
+            cell.loadCellWithMovie(moviesVM.movieAtIndex(indexPath.row)!)
         }
         
         return cell
