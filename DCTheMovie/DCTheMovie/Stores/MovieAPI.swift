@@ -25,7 +25,7 @@ class MovieAPI {
     private static let apiURL = "https://api.themoviedb.org/3/"
     private static let apiKey = "1f54bd990f1cdfb230adb312546d765d"
     private static let apiImageURL = "https://image.tmdb.org/t/p/w"
-	private static let defaultProperties = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false"
+	private static let defaultProperties = "&language=en-US&include_adult=false&include_video=false" //&sort_by=popularity.desc
     
     init() {
         
@@ -58,7 +58,9 @@ class MovieAPI {
     
     func moviesWithParams(_ params: MovieParams, success: @escaping (_ movies: [Movie],_ pages: Int) -> Void, error: @escaping (String) -> Void) {
         
-        let url = "\(MovieAPI.apiURL)\(params.type)/movie?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)&query=\(params.query)&page=\(params.page)"
+        let q = params.query.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        let url = "\(MovieAPI.apiURL)\(params.type)/movie?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)&query=\(q)&page=\(params.page)"
         
         Alamofire.request(url).responseJSON { (response) in
             

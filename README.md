@@ -12,7 +12,7 @@ If you want to know more about this API follow  [The Movie API](https://www.them
 - Movie details
 
 ## Code coverage
-More than 90% with UI test included.
+More than 86% with UI test included.
 
 ## Build
 

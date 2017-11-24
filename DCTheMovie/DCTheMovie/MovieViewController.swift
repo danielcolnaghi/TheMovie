@@ -72,9 +72,13 @@ extension MovieViewController: UISearchBarDelegate {
         
         moviesVM.params.page = 1
         
+        self.loadingPlaceholder = true
         self.moviesVM.removeAllMovies()
-        self.moviesVM.loadMovies { () in
-            self.tblMovies.reloadData()
+        fillTableUsingPlaceholder {
+            self.moviesVM.loadMovies { () in
+                self.loadingPlaceholder = false
+                self.tblMovies.reloadData()
+            }
         }
     }
 }
