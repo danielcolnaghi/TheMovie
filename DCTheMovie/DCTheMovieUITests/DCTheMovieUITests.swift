@@ -26,7 +26,7 @@ class DCTheMovieUITests: XCTestCase {
         app.launchArguments.append("STUBS")
         app.launch()
 
-        let theMoviesButton = app.navigationBars["Movie"].buttons["The Movies"]
+        let theMoviesButton = app.navigationBars["The Movies"].buttons["The Movies"]
         
         app.tables.staticTexts["?!?!?"].tap()
         theMoviesButton.tap()
