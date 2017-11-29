@@ -56,6 +56,26 @@ class MovieAPI {
         #endif
     }
     
+    func movieDetailsWithId(_ movieId: Int, success: @escaping (_ movie: Movie) -> Void, error: @escaping (String) -> Void) {
+        
+        let url = "\(MovieAPI.apiURL)/movie/\(movieId)?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)"
+        
+        Alamofire.request(url).responseJSON { (response) in
+            
+            guard let result = response.result.value else {
+                error("Error getting results from server.")
+                return
+            }
+            
+            if let values = self.parseMovies(result) {
+                success(values.movies[0])
+            } else {
+                error("Error getting results from JSON response.")
+            }
+            
+        }
+    }
+    
     func moviesWithParams(_ params: MovieParams, success: @escaping (_ movies: [Movie],_ pages: Int) -> Void, error: @escaping (String) -> Void) {
         
         let q = params.query.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!

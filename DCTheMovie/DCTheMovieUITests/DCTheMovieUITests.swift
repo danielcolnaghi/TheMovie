@@ -55,6 +55,26 @@ class DCTheMovieUITests: XCTestCase {
         searchForZombiesOrMoviesSearchField.tap()
         
         
+        
+        
+   /*
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        let searchForZombiesOrMoviesSearchField = tablesQuery.searchFields["search for zombies or movies"]
+        searchForZombiesOrMoviesSearchField.tap()
+        searchForZombiesOrMoviesSearchField.typeText("zomb")
+        app.typeText("\r")
+        searchForZombiesOrMoviesSearchField.tap()
+        searchForZombiesOrMoviesSearchField.tap()
+        searchForZombiesOrMoviesSearchField.typeText("zomb")
+        searchForZombiesOrMoviesSearchField.tap()
+        
+        let cancelButton = tablesQuery.buttons["Cancel"]
+        cancelButton.tap()
+        cancelButton.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Vote Avarage 5.6"]/*[[".cells.staticTexts[\"Vote Avarage 5.6\"]",".staticTexts[\"Vote Avarage 5.6\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
+        tablesQuery.children(matching: .cell).element(boundBy: 7).staticTexts["2017-04-19"].swipeUp()
+        */
     }
 
 }

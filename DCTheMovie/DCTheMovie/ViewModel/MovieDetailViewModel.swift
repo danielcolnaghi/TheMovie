@@ -8,11 +8,24 @@
 
 import UIKit
 
-struct MovieDetailViewModel {
+class MovieDetailViewModel {
 	
-	let movie : Movie
+	var movie : Movie
 	
 	init(movie : Movie) {
 		self.movie = movie
 	}
+    
+    func loadDetails(success: @escaping () -> Void) {
+
+        MovieAPI().movieDetailsWithId(movie.id, success: { (responseMovie) in
+
+            self.movie.budget = 100000
+            
+            success()
+        }) { (error) in
+            // TODO: alert user to retry
+        }
+    }
+
 }

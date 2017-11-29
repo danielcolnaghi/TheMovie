@@ -10,20 +10,36 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController {
 	
-	@IBOutlet weak var imgCover: UIImageView!
+    @IBOutlet weak var imgBackdrop: UIImageView!
+    @IBOutlet weak var imgCover: UIImageView!
 	@IBOutlet weak var lblTitle: UILabel!
 	@IBOutlet weak var txtOverview: UITextView!
 	
-	var viewModel : MovieDetailViewModel!
-	
+    @IBOutlet var lblRuntime: UILabel!
+    @IBOutlet var lblBudget: UILabel!
+    @IBOutlet var lblRevenue: UILabel!
+    @IBOutlet var lblReleasedDate: UILabel!
+    
+    var movieDetailVM : MovieDetailViewModel!
+    private var movie : Movie!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		viewModel.movie.loadBackdropImage(success: { (image) in
-			self.imgCover.image = image
+        movie = movieDetailVM.movie
+        
+		movie.loadBackdropImage(success: { (image) in
+			self.imgBackdrop.image = image
 		})
-		
-		lblTitle.text = viewModel.movie.title
-		txtOverview.text = viewModel.movie.overview
+
+        movie.loadCoverImage(success: { (image) in
+            self.imgCover.image = image
+        })
+        
+		lblTitle.text = movie.title
+		txtOverview.text = movie.overview
+        lblReleasedDate.text = movie.releaseDate
+        lblBudget.text = "\(movie.budget)"
+        lblRevenue.text = "\(movie.revenue)"
+        lblRuntime.text = "\(movie.runtime)"
 	}
 }
