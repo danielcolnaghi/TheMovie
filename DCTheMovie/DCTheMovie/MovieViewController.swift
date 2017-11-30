@@ -11,7 +11,6 @@ import UIKit
 class MovieViewController: UIViewController {
 
 	var moviesVM: MoviesViewModel = MoviesViewModel()
-	var selectedItem: Movie!
 	var loadingMore: Bool = false
     private var loadingPlaceholder = true
 	
@@ -32,8 +31,11 @@ class MovieViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let vc = segue.destination as! MovieDetailsViewController
-		vc.viewModel = MovieDetailViewModel(movie: selectedItem)
+        if let vc = segue.destination as? MovieDetailsViewController {
+            if let sender = sender as? Movie {
+                vc.movieDetailVM = MovieDetailViewModel(movie: sender)
+            }
+        }
 	}
     
     func fillTableUsingPlaceholder(done:@escaping () -> Void) {
@@ -94,10 +96,14 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
         var cell : MovieCell!
         
         if loadingPlaceholder {
+            // Placehold cell
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecellplaceholder") as! MovieCell
         } else {
+            // Movie cell
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
             cell.loadCellWithMovie(moviesVM.movieAtIndex(indexPath.row)!)
+            // MoviesViewModel will try to call another page when the last index cell is called
+            // This will send a response when done
         }
         
         return cell
@@ -108,12 +114,13 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
             tableView.deselectRow(at: indexPath, animated: false)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
-            selectedItem = moviesVM.movieAtIndex(indexPath.row)
-            performSegue(withIdentifier: "segueMovieDetails", sender: self)
+            let data = moviesVM.movieAtIndex(indexPath.row)
+            performSegue(withIdentifier: "segueMovieDetails", sender: data)
         }
     }
 }
 
+// This response is called after the page request
 extension MovieViewController: AsyncResponse {
     func doneLoadMoreMovies() {
         self.tblMovies.reloadData()
