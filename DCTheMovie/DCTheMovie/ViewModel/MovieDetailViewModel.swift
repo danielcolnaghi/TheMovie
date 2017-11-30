@@ -19,9 +19,9 @@ class MovieDetailViewModel {
     func loadDetails(success: @escaping () -> Void) {
 
         MovieAPI().movieDetailsWithId(movie.id, success: { (responseMovie) in
-
-            self.movie.budget = 100000
-            
+            self.movie.budget = responseMovie.budget
+            self.movie.revenue = responseMovie.revenue
+            self.movie.runtime = responseMovie.runtime
             success()
         }) { (error) in
             // TODO: alert user to retry

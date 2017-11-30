@@ -108,9 +108,19 @@ struct Movie: Codable {
 	}
 }
 
-extension Movie {
-    enum MovieKeys: String {
-        case title = "title"
-        case overview = "overview"
+extension Int {
+    func toUSCurrency() -> String {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale(identifier: "en-US")
+        formatter.numberStyle = .currency
+        if let formattedTipAmount = formatter.string(from: self as NSNumber) {
+            return formattedTipAmount
+        } else {
+            return ""
+        }
+    }
+    
+    func toRuntime() -> String {
+        return "\(self/60)h \((self)%60)m"
     }
 }

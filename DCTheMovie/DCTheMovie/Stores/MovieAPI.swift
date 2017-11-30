@@ -58,7 +58,7 @@ class MovieAPI {
     
     func movieDetailsWithId(_ movieId: Int, success: @escaping (_ movie: Movie) -> Void, error: @escaping (String) -> Void) {
         
-        let url = "\(MovieAPI.apiURL)/movie/\(movieId)?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)"
+        let url = "\(MovieAPI.apiURL)movie/\(movieId)?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)"
         
         Alamofire.request(url).responseJSON { (response) in
             
@@ -68,7 +68,13 @@ class MovieAPI {
             }
             
             if let values = self.parseMovies(result) {
-                success(values.movies[0])
+                
+                if values.movies.count > 0 {
+                    success(values.movies[0])
+                } else {
+                    error("Out of range.")
+                }
+                
             } else {
                 error("Error getting results from JSON response.")
             }
@@ -114,8 +120,11 @@ class MovieAPI {
                 let m = Movie(dic: obj)
                 movies.insert(m, at: 0)
             }
-            
             pages = json["total_pages"].intValue
+            
+        } else if let singleMovie = json.dictionaryObject {
+            let m = Movie(dic: singleMovie)
+            movies.insert(m, at: 0)
         }
         
         return (movies, pages)

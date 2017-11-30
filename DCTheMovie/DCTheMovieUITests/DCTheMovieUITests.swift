@@ -54,8 +54,13 @@ class DCTheMovieUITests: XCTestCase {
         app.typeText("\r")
         searchForZombiesOrMoviesSearchField.tap()
         
+        let theMoviesButton = app.navigationBars["The Movies"].buttons["The Movies"]
+        app.tables.staticTexts["?!?!?"].tap()
+        theMoviesButton.tap()
         
-        
+        let tablesQuery = app.tables
+        let cancelButton = tablesQuery.buttons["Cancel"]
+        cancelButton.tap()
         
    /*
         let app = XCUIApplication()

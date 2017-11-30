@@ -21,25 +21,26 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet var lblReleasedDate: UILabel!
     
     var movieDetailVM : MovieDetailViewModel!
-    private var movie : Movie!
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        movie = movieDetailVM.movie
         
-		movie.loadBackdropImage(success: { (image) in
+		movieDetailVM.movie.loadBackdropImage(success: { (image) in
 			self.imgBackdrop.image = image
 		})
 
-        movie.loadCoverImage(success: { (image) in
+        movieDetailVM.movie.loadCoverImage(success: { (image) in
             self.imgCover.image = image
         })
         
-		lblTitle.text = movie.title
-		txtOverview.text = movie.overview
-        lblReleasedDate.text = movie.releaseDate
-        lblBudget.text = "\(movie.budget)"
-        lblRevenue.text = "\(movie.revenue)"
-        lblRuntime.text = "\(movie.runtime)"
+		lblTitle.text = movieDetailVM.movie.title
+		txtOverview.text = movieDetailVM.movie.overview
+        lblReleasedDate.text = movieDetailVM.movie.releaseDate
+        
+        movieDetailVM.loadDetails {
+            self.lblBudget.text = "\(self.movieDetailVM.movie.budget.toUSCurrency())"
+            self.lblRevenue.text = "\(self.movieDetailVM.movie.revenue.toUSCurrency())"
+            self.lblRuntime.text = "\(self.movieDetailVM.movie.runtime.toRuntime())"
+        }
 	}
 }
