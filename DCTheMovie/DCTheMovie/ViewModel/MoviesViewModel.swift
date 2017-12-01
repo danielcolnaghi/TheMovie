@@ -6,7 +6,7 @@
 //  Copyright © 2017 Cold Mass Digital Entertainment. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol AsyncResponse {
     func doneLoadMoreMovies()
