@@ -41,7 +41,7 @@
 
 import UIKit
 
-struct Movie: Codable {
+struct Movie : Codable {
     let id : Int
     let title : String?
     let overview : String?
@@ -106,6 +106,24 @@ struct Movie: Codable {
             success(UIImage(named: "wideplaceholder"))
         }
 	}
+    
+
+}
+
+extension Movie : Equatable {
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    static func != (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.id != rhs.id
+    }
+}
+
+extension Movie : Hashable {
+    var hashValue: Int {
+        return id.hashValue
+    }
 }
 
 extension Int {

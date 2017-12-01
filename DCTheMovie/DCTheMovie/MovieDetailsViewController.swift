@@ -43,4 +43,7 @@ class MovieDetailsViewController: UIViewController {
             self.lblRuntime.text = "\(self.movieDetailVM.movie.runtime.toRuntime())"
         }
 	}
+    @IBAction func addMovie(_ sender: Any) {
+        MyMoviesViewModel().addMovie(movieDetailVM.movie)
+    }
 }
