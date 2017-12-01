@@ -205,7 +205,6 @@
         <!--About-->
         <scene sceneID="ygA-1g-tci">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dL8-fC-aiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="sh3-1J-d0q" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EUV-dG-uRN"/>
@@ -216,14 +215,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cache all images" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RP4-2C-F8R">
-                                <rect key="frame" x="16" y="28" width="145" height="40"/>
+                                <rect key="frame" x="16" y="63" width="145" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0qb-uW-j34">
-                                <rect key="frame" x="255" y="33" width="49" height="31"/>
+                                <rect key="frame" x="255" y="68" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                         </subviews>
@@ -231,13 +230,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="About" id="gbO-ep-xa3"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dL8-fC-aiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2750.625" y="936.97183098591552"/>
         </scene>
         <!--My Movies-->
         <scene sceneID="ni1-pf-YTG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4eG-ck-EFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="My Movies" id="8Un-NR-Hb2" customClass="MyMoviesViewController" customModule="DCTheMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VtC-pY-E6Z"/>
@@ -258,7 +257,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abj-hH-VNn">
+                                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abj-hH-VNn">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dws-cO-iSv">
@@ -266,7 +265,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="lKc-K6-V79"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -307,6 +306,7 @@
                         <segue destination="mN7-Z7-rHY" kind="show" identifier="segueMyMovies" id="k1k-5R-fTp"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eG-ck-EFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-773" y="939"/>
         </scene>
@@ -321,11 +321,10 @@
                     </tabBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
-                            <integer key="value" value="1"/>
+                            <integer key="value" value="0"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="sh3-1J-d0q" kind="relationship" relationship="viewControllers" id="y1w-4F-9U3"/>
                         <segue destination="rYW-fT-t3Z" kind="relationship" relationship="viewControllers" id="Bh6-3H-NbW"/>
                         <segue destination="xMD-Ra-gde" kind="relationship" relationship="viewControllers" id="BBf-58-Ggv"/>
                     </connections>
