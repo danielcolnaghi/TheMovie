@@ -11,7 +11,8 @@ If you want to know more about this API follow  [The Movie API](https://www.them
 - Search movies
 - Movie details (with more info now)
 -  Favorite a movie
-- About
+- UI Improvements
+
 
 
 ## Code coverage
@@ -38,6 +39,6 @@ I also uploaded in this repository a [Sketch](https://www.sketchapp.com) file wi
 
 ## Next Steps
 
-- UI Improvements
+- About
 - Re order my movies
 - Custom transactions

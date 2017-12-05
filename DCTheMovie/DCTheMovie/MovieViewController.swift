@@ -15,7 +15,7 @@ class MovieViewController: UIViewController {
     private var loadingPlaceholder = true
 	
 	@IBOutlet weak var tblMovies: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    var searchController : UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,21 @@ class MovieViewController: UIViewController {
                 self.loadingPlaceholder = false
                 self.tblMovies.reloadData()
             }
+        }
+        
+        self.searchController = UISearchController(searchResultsController:  nil)
+        self.searchController.searchBar.delegate = self
+        self.searchController.searchBar.placeholder = "search for zombies or movies"
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = false
+
+        self.definesPresentationContext = true
+        
+        if #available(iOS 11.0, *) {
+            self.navigationItem.searchController = searchController
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        } else {
+            self.navigationItem.titleView = searchController.searchBar
         }
 	}
 	
@@ -48,14 +63,14 @@ class MovieViewController: UIViewController {
 
 extension MovieViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        search()
+        search(searchBar)
         searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.showsCancelButton = false
-        search()
+        search(searchBar)
         searchBar.resignFirstResponder()
     }
     
@@ -63,7 +78,7 @@ extension MovieViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = true
     }
     
-    func search() {
+    func search(_ searchBar: UISearchBar) {
         if let t = searchBar.text, !t.isEmpty {
             moviesVM.params.type = "search"
             moviesVM.params.query = t

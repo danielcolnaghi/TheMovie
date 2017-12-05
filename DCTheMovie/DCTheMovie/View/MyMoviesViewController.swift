@@ -15,6 +15,10 @@ class MyMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

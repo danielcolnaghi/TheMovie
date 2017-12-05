@@ -35,6 +35,7 @@ class MovieDetailsViewController: UIViewController {
         
 		lblTitle.text = movieDetailVM.movie.title
 		txtOverview.text = movieDetailVM.movie.overview
+        txtOverview.contentOffset = CGPoint.zero
         lblReleasedDate.text = movieDetailVM.movie.releaseDate
         
         movieDetailVM.loadDetails {
@@ -43,6 +44,7 @@ class MovieDetailsViewController: UIViewController {
             self.lblRuntime.text = "\(self.movieDetailVM.movie.runtime.toRuntime())"
         }
 	}
+    
     @IBAction func addMovie(_ sender: Any) {
         MyMoviesViewModel().addMovie(movieDetailVM.movie)
     }
