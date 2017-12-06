@@ -38,14 +38,6 @@ class MovieAPI {
                     headers: ["Content-Type":"application/json"]
                 )
             }
-        } else if ProcessInfo.processInfo.arguments.contains("STUBS-BIG") {
-            stub(condition: pathEndsWith("/movie")) { request in
-                return OHHTTPStubsResponse(
-                    fileAtPath: OHPathForFile("big.json", type(of: self))!,
-                    statusCode: 200,
-                    headers: ["Content-Type":"application/json"]
-                )
-            }
         }
         #endif
     }

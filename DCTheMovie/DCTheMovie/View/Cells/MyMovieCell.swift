@@ -13,14 +13,20 @@ class MyMovieCell : UITableViewCell {
     @IBOutlet weak var imgBackground: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     
+    private var movieId = 0
+    
     func loadCellWithMovie(_ movie : Movie) {
         
         self.lblTitle.text = movie.title
-        self.imgBackground.image = nil
+        self.movieId = movie.id
         
         if self.reuseIdentifier == "moviecell" {
             movie.loadBackdropImage { (image) in
-                self.imgBackground.image = image
+
+                if movie.id == self.movieId {
+                    self.imgBackground.image = image
+                }
+
             }
         }
     }

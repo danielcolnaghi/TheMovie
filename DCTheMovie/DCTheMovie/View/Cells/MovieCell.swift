@@ -15,16 +15,20 @@ class MovieCell : UITableViewCell {
 	@IBOutlet weak var lblVote: UILabel!
 	@IBOutlet weak var lblReleaseDate: UILabel!
 	
+    private var movieId = 0
+    
 	func loadCellWithMovie(_ movie : Movie) {
 
         self.lblTitle.text = movie.title
         self.lblVote.text = "Vote Avarage \(movie.voteAvarage)"
         self.lblReleaseDate.text = "\(movie.releaseDate)"
-        self.imgBackground.image = nil
+        self.movieId = movie.id
         
         if self.reuseIdentifier == "moviecell" {
             movie.loadCoverImage { (image) in
-                self.imgBackground.image = image
+                if movie.id == self.movieId {
+                    self.imgBackground.image = image
+                }
             }
         }
 	}

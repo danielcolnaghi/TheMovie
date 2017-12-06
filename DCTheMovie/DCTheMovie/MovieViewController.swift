@@ -32,7 +32,7 @@ class MovieViewController: UIViewController {
         self.searchController = UISearchController(searchResultsController:  nil)
         self.searchController.searchBar.delegate = self
         self.searchController.searchBar.placeholder = "search for zombies or movies"
-        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.hidesNavigationBarDuringPresentation = true
         self.searchController.dimsBackgroundDuringPresentation = false
 
         self.definesPresentationContext = true
