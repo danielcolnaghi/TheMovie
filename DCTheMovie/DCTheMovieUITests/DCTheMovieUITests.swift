@@ -38,6 +38,10 @@ class DCTheMovieUITests: XCTestCase {
         theMoviesButton.tap()
         
         app.tables.staticTexts["Zombie Strippers!"].tap()
+        // Image tap test
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element
+        element.children(matching: .image).element.tap()
+        element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).children(matching: .image).element.tap()
         theMoviesButton.tap()
     }
     
@@ -72,7 +76,7 @@ class DCTheMovieUITests: XCTestCase {
         let theMoviesButton = app.navigationBars["Details"].buttons["The Movies"]
         
         app.tables.staticTexts["Zombie Strippers!"].tap()
-        app.buttons["I Must Watch"].tap()
+        app.navigationBars["Details"].children(matching: .button).element(boundBy: 1).tap()
         theMoviesButton.tap()
         
         let tabBarsQuery = app.tabBars
@@ -84,5 +88,6 @@ class DCTheMovieUITests: XCTestCase {
         myMoviesButtonBack.tap()
         app.tables.staticTexts["Zombie Strippers!"].swipeLeft()
         app.tables.buttons["Delete"].tap()
+        
     }
 }

@@ -14,9 +14,9 @@ If you want to know more about this API follow  [The Movie API](https://www.them
 - UI Improvements
 
 
-
 ## Code coverage
-More than 86% with UI test included.
+
+More than 89% with UI test included.
 
 ## Build
 
@@ -35,7 +35,12 @@ pod 'OHHTTPStubs/Swift', '~> 6.0.0'
 ```
 
 ## Layout
+
 I also uploaded in this repository a [Sketch](https://www.sketchapp.com) file with the initial idea about the app layout.
+
+## Contributors
+
+[Phelippe](https://github.com/phyll88) with your amazing knowledge with size class and constraints.
 
 ## Next Steps
 
