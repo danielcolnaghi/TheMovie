@@ -108,7 +108,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell : MovieCell!
+        var cell: MovieCell!
         
         if loadingPlaceholder {
             // Placehold cell

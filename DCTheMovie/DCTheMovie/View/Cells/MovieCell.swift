@@ -24,25 +24,11 @@ class MovieCell : UITableViewCell {
     private var attachment: UIAttachmentBehavior!
     private var collision: UICollisionBehavior!
     private var dynamicItem: UIDynamicItemBehavior!
+    private var push: UIPushBehavior!
     
 	func loadCellWithMovie(_ movie : Movie) {
         
-        // Behaviors
-        attachment = UIAttachmentBehavior(item: self.imgBackground, attachedToAnchor: CGPoint(x: vAnchor.center.x, y: vAnchor.center.y))
-        gravity = UIGravityBehavior(items: [self.imgBackground])
-        collision = UICollisionBehavior(items: [self.imgBackground])
-        collision.translatesReferenceBoundsIntoBoundary = true
-        dynamicItem = UIDynamicItemBehavior(items: [self.imgBackground])
-        dynamicItem.allowsRotation = true
-
-        animator = UIDynamicAnimator(referenceView: self)
-        animator.addBehavior(dynamicItem)
-        animator.addBehavior(gravity)
-        animator.addBehavior(attachment)
-//        animator.addBehavior(collision)
-        
-        
-        
+        animateImage()
         
         self.lblTitle.text = movie.title
         self.lblVote.text = "Vote Avarage \(movie.voteAvarage)"
@@ -57,4 +43,26 @@ class MovieCell : UITableViewCell {
             }
         }
 	}
+    
+    private func animateImage() {
+        // Behaviors
+        attachment = UIAttachmentBehavior(item: self.imgBackground, offsetFromCenter: UIOffset(horizontal: 2, vertical: -40), attachedToAnchor: vAnchor.center)
+        
+        push = UIPushBehavior(items: [self.imgBackground], mode: .instantaneous)
+        push.angle = 0.5
+        push.magnitude = 0.15
+        
+        gravity = UIGravityBehavior(items: [self.imgBackground])
+        
+        dynamicItem = UIDynamicItemBehavior(items: [self.imgBackground])
+        dynamicItem.allowsRotation = true
+        dynamicItem.elasticity = 0
+        dynamicItem.resistance = 1
+        
+        animator = UIDynamicAnimator(referenceView: self)
+        animator.addBehavior(dynamicItem)
+        animator.addBehavior(gravity)
+        animator.addBehavior(attachment)
+        animator.addBehavior(push)
+    }
 }
