@@ -11,8 +11,10 @@ If you want to know more about this API follow  [The Movie API](https://www.them
 - Search movies
 - Movie details (with more info now)
 -  Favorite a movie
-- UI Improvements
 
+## Other implementations
+
+- UI improvements using UIDynamics to animate cover image and cnahges the cell background color to differ the following cell.
 
 ## Code coverage
 
@@ -47,3 +49,5 @@ I also uploaded in this repository a [Sketch](https://www.sketchapp.com) file wi
 - About
 - Re order my movies
 - Custom transactions
+- UI Improvements
+- Tag movie as watched

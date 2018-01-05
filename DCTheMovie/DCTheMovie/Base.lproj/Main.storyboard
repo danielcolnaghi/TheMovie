@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2lZ-np-AaI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2lZ-np-AaI">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,6 +73,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yG3-Xl-ZoV">
+                                                    <rect key="frame" x="40" y="2" width="15" height="13"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wnZ-7C-UKP" firstAttribute="top" secondItem="bpP-LN-rQw" secondAttribute="topMargin" id="2ZV-Jw-4F3"/>
@@ -94,6 +99,7 @@
                                             <outlet property="lblReleaseDate" destination="Vul-j4-e3Y" id="qoo-dU-Wxa"/>
                                             <outlet property="lblTitle" destination="36r-Zi-umr" id="Qhu-u6-1iy"/>
                                             <outlet property="lblVote" destination="EbQ-aU-NF3" id="DOY-jR-Tux"/>
+                                            <outlet property="vAnchor" destination="yG3-Xl-ZoV" id="Fez-T1-1i1"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="moviecellplaceholder" id="gR2-qc-b4o" customClass="MovieCell" customModule="DCTheMovie" customModuleProvider="target">
@@ -647,6 +653,6 @@
         <image name="wideplaceholder" width="320" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k1k-5R-fTp"/>
+        <segue reference="xKy-Iz-dRG"/>
     </inferredMetricsTieBreakers>
 </document>
