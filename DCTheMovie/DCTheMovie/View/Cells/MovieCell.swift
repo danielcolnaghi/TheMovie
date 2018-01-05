@@ -20,7 +20,7 @@ class MovieCell : UITableViewCell {
     
     // Dynamics
     private var gravity: UIGravityBehavior!
-    private var animator: UIDynamicAnimator!
+    private var animator: UIDynamicAnimator?
     private var attachment: UIAttachmentBehavior!
     private var collision: UICollisionBehavior!
     private var dynamicItem: UIDynamicItemBehavior!
@@ -59,10 +59,15 @@ class MovieCell : UITableViewCell {
         dynamicItem.elasticity = 0
         dynamicItem.resistance = 1
         
+        // Animator
         animator = UIDynamicAnimator(referenceView: self)
-        animator.addBehavior(dynamicItem)
-        animator.addBehavior(gravity)
-        animator.addBehavior(attachment)
-        animator.addBehavior(push)
+        animator?.addBehavior(dynamicItem)
+        animator?.addBehavior(gravity)
+        animator?.addBehavior(attachment)
+        animator?.addBehavior(push)
+    }
+    
+    deinit {
+        animator?.removeAllBehaviors()
     }
 }

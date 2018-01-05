@@ -117,6 +117,11 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
             // Movie cell
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
             cell.loadCellWithMovie(moviesVM.movieAtIndex(indexPath.row)!)
+            if indexPath.row % 2 > 0 {
+                cell.backgroundColor = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1.0)
+            } else {
+                cell.backgroundColor = UIColor.white
+            }
             // MoviesViewModel will try to call another page when the last index cell is called
             // This will send a response when done
         }
