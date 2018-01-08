@@ -211,6 +211,23 @@
             </objects>
             <point key="canvasLocation" x="-1718" y="938"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="RZU-C7-TOh">
+            <objects>
+                <navigationController id="8qh-mL-Rpz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="MFd-A7-Hgt"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z9M-7t-Cun">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sh3-1J-d0q" kind="relationship" relationship="rootViewController" id="1sK-eL-XJU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72L-Th-lya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3407" y="937"/>
+        </scene>
         <!--About-->
         <scene sceneID="ygA-1g-tci">
             <objects>
@@ -223,25 +240,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cache all images" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RP4-2C-F8R">
-                                <rect key="frame" x="16" y="63" width="145" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About The Movies - Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP4-2C-F8R">
+                                <rect key="frame" x="16" y="72" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3ab-Hq-0Zl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0qb-uW-j34">
-                                <rect key="frame" x="255" y="68" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWO-Ms-abw">
+                                <rect key="frame" x="28" y="120" width="284" height="399"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">The Movies is an application to save your must watch list. It been develop to share a simple example of how to implement code coverage, MVVM and others things.  For those who want to know more about the code, follow my github. https://github.com/danielcolnaghi/TheMovie  More apps and games from Cold Mass https://itunes.apple.com/us/developer/colnaghi/id543689206 </string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Futura-CondensedMedium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xWO-Ms-abw" firstAttribute="top" secondItem="RP4-2C-F8R" secondAttribute="bottom" constant="8" id="2fl-Di-LXL"/>
+                            <constraint firstItem="RP4-2C-F8R" firstAttribute="leading" secondItem="2US-xr-yTo" secondAttribute="leadingMargin" id="58b-Ka-PZU"/>
+                            <constraint firstItem="RP4-2C-F8R" firstAttribute="top" secondItem="EUV-dG-uRN" secondAttribute="bottom" constant="8" id="6g5-as-agB"/>
+                            <constraint firstItem="xWO-Ms-abw" firstAttribute="leading" secondItem="2US-xr-yTo" secondAttribute="leading" constant="28" id="AF0-NL-MTp"/>
+                            <constraint firstAttribute="trailing" secondItem="xWO-Ms-abw" secondAttribute="trailing" constant="8" id="R47-qD-C3M"/>
+                            <constraint firstItem="TSN-Ls-yq8" firstAttribute="top" secondItem="xWO-Ms-abw" secondAttribute="bottom" id="eAe-uG-a6q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RP4-2C-F8R" secondAttribute="trailing" constant="8" id="i2m-1C-Q0j"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="About" id="gbO-ep-xa3"/>
+                    <navigationItem key="navigationItem" title="About" id="tJS-EU-he8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dL8-fC-aiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2750.625" y="936.97183098591552"/>
+            <point key="canvasLocation" x="-2441.25" y="936.97183098591552"/>
         </scene>
         <!--My Movies-->
         <scene sceneID="ni1-pf-YTG">
@@ -266,7 +306,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abj-hH-VNn">
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abj-hH-VNn">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TitleFadeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="mii-bb-Tef">
@@ -276,9 +316,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dws-cO-iSv">
-                                                    <rect key="frame" x="15" y="11" width="290" height="40"/>
+                                                    <rect key="frame" x="15" y="11" width="290" height="32"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="lKc-K6-V79"/>
+                                                        <constraint firstAttribute="height" constant="32" id="lKc-K6-V79"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -345,6 +385,7 @@
                     <connections>
                         <segue destination="rYW-fT-t3Z" kind="relationship" relationship="viewControllers" id="Bh6-3H-NbW"/>
                         <segue destination="xMD-Ra-gde" kind="relationship" relationship="viewControllers" id="BBf-58-Ggv"/>
+                        <segue destination="8qh-mL-Rpz" kind="relationship" relationship="viewControllers" id="S9i-N0-yau"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ik-aX-YKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -641,7 +682,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="881.25" y="936.97183098591552"/>
+            <point key="canvasLocation" x="135" y="937"/>
         </scene>
     </scenes>
     <resources>
@@ -653,6 +694,6 @@
         <image name="wideplaceholder" width="320" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xKy-Iz-dRG"/>
+        <segue reference="k1k-5R-fTp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -90,4 +90,16 @@ class DCTheMovieUITests: XCTestCase {
         app.tables.buttons["Delete"].tap()
         
     }
+    
+    func testAbout() {
+        
+        let app = XCUIApplication()
+        app.launchArguments.append("STUBS")
+        app.launch()
+        
+        let tabBarsQuery = app.tabBars
+        let myMoviesButton = tabBarsQuery.buttons["About"]
+        myMoviesButton.tap()
+        
+    }
 }
