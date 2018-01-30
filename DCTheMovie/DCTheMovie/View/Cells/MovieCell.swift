@@ -22,7 +22,6 @@ class MovieCell : UITableViewCell {
     private var gravity: UIGravityBehavior!
     private var animator: UIDynamicAnimator?
     private var attachment: UIAttachmentBehavior!
-    private var collision: UICollisionBehavior!
     private var dynamicItem: UIDynamicItemBehavior!
     private var push: UIPushBehavior!
     

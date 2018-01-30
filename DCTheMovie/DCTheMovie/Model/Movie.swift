@@ -41,44 +41,57 @@
 
 import UIKit
 
-struct Movie : Codable {
+struct Movie: Codable {
     let id : Int
     let title : String?
     let overview : String?
     var coverPath : String?
-	var voteAvarage : String
+	var voteAvarage : Int?
 	let releaseDate : String
 	var backdropPath : String?
-    var budget : Int
-    var revenue : Int
-    var runtime : Int
+    var budget : Int?
+    var revenue : Int?
+    var runtime : Int?
     
-    init(dic : Dictionary<String, Any>) {
-
-        id = dic["id"] as? Int ?? 0
-        title = dic["title"] as? String ?? ""
-        overview = dic["overview"] as? String ?? ""
-
-        budget = dic["budget"] as? Int ?? 0
-        revenue = dic["revenue"] as? Int ?? 0
-        runtime = dic["runtime"] as? Int ?? 0
-        
-        if let poster_path = dic["poster_path"] as? String {
-            coverPath = poster_path
-        }
-
-        if let vote = dic["vote_average"] as? Float {
-            voteAvarage = String(format: "%.1f", vote)
-        } else {
-            voteAvarage = "-"
-        }
-
-        releaseDate = dic["release_date"] as? String ?? ""
-
-        if let back = dic["backdrop_path"] as? String {
-            backdropPath = back
-        }
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case overview
+        case coverPath = "cover_path"
+        case voteAvarage = "vote_avarage"
+        case releaseDate = "release_date"
+        case backdropPath = "backdrop_path"
+        case budget
+        case revenue
+        case runtime
     }
+    
+//    init(dic : Dictionary<String, Any>) {
+//
+//        id = dic["id"] as? Int ?? 0
+//        title = dic["title"] as? String ?? ""
+//        overview = dic["overview"] as? String ?? ""
+//
+//        budget = dic["budget"] as? Int ?? 0
+//        revenue = dic["revenue"] as? Int ?? 0
+//        runtime = dic["runtime"] as? Int ?? 0
+//
+//        if let poster_path = dic["poster_path"] as? String {
+//            coverPath = poster_path
+//        }
+//
+//        if let vote = dic["vote_average"] as? Float {
+//            voteAvarage = String(format: "%.1f", vote)
+//        } else {
+//            voteAvarage = "-"
+//        }
+//
+//        releaseDate = dic["release_date"] as? String ?? ""
+//
+//        if let back = dic["backdrop_path"] as? String {
+//            backdropPath = back
+//        }
+//    }
 	
 	func loadCoverImage(success: @escaping (UIImage?) -> Void) -> Void {
 

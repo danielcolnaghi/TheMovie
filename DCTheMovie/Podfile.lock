@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.5.1)
+  - Alamofire (4.6.0)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
   - OHHTTPStubs/Core (6.0.0)
@@ -24,11 +24,11 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
 PODFILE CHECKSUM: 299b5f8bcaca62e6f44c5ec5728ccc3debb56c33
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
