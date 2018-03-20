@@ -56,9 +56,9 @@ class MovieDetailsViewController: UIViewController {
         lblReleasedDate.text = movieDetailVM.movie.releaseDate
         
         movieDetailVM.loadDetails {
-            self.lblBudget.text = "\(self.movieDetailVM.movie.budget.toUSCurrency())"
-            self.lblRevenue.text = "\(self.movieDetailVM.movie.revenue.toUSCurrency())"
-            self.lblRuntime.text = "\(self.movieDetailVM.movie.runtime.toRuntime())"
+            self.lblBudget.text = "\(self.movieDetailVM.movie.budget?.toUSCurrency() ?? "")"
+            self.lblRevenue.text = "\(self.movieDetailVM.movie.revenue?.toUSCurrency() ?? "")"
+            self.lblRuntime.text = "\(self.movieDetailVM.movie.runtime?.toRuntime() ?? "")"
         }
 	}
     
