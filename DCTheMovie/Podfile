@@ -5,20 +5,17 @@ use_frameworks!
 target 'DCTheMovie' do
     pod 'Alamofire', '~> 4.4'
 	pod 'AlamofireImage'
-	pod 'SwiftyJSON'
     pod 'OHHTTPStubs/Swift', '~> 6.0.0'
 end
 
 target 'DCTheMovieTests' do
     pod 'Alamofire', '~> 4.4'
     pod 'AlamofireImage'
-    pod 'SwiftyJSON'
     pod 'OHHTTPStubs/Swift', '~> 6.0.0'
 end
 
 target 'DCTheMovieUITests' do
     pod 'Alamofire', '~> 4.4'
     pod 'AlamofireImage'
-    pod 'SwiftyJSON'
     pod 'OHHTTPStubs/Swift', '~> 6.0.0'
 end

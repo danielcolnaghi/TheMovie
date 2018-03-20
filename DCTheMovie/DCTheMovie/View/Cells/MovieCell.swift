@@ -30,7 +30,12 @@ class MovieCell : UITableViewCell {
         animateImage()
         
         self.lblTitle.text = movie.title
-        self.lblVote.text = "Vote Avarage \(movie.voteAvarage)"
+        
+        if let vote = movie.voteAvarage {
+            self.lblVote.text = "Vote Avarage \(vote)"
+        } else {
+            self.lblVote.text = "Vote Avarage -"
+        }
         self.lblReleaseDate.text = "\(movie.releaseDate)"
         self.movieId = movie.id
         

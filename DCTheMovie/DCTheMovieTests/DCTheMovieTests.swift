@@ -56,22 +56,6 @@ class DCTheMovieTests: XCTestCase {
         waitForIt()
     }
     
-    func testMoviesFromPageError() {
-        let exp = expectation(description: "Get data from stubs")
-        stubRequestFor(path: "/movie", jsonFile: "invalid.json")
-        
-        let param = MovieParams(page: 1, query: "", type: "discover")
-        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
-            XCTFail("This test should fail!")
-            exp.fulfill()
-        }) { (error) in
-            XCTAssert(error != "", "Json is invalid - error: \(error)")
-            exp.fulfill()
-        }
-        
-        waitForIt()
-    }
-    
     func testMoviesSearch() {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
@@ -89,22 +73,6 @@ class DCTheMovieTests: XCTestCase {
         waitForIt()
     }
     
-    func testMoviesSearchError() {
-        let exp = expectation(description: "Get data from stubs")
-        stubRequestFor(path: "/movie", jsonFile: "invalid.json")
-        
-        let param = MovieParams(page: 1, query: "", type: "search")
-        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
-            XCTFail("This test should fail!")
-            exp.fulfill()
-        }) { (error) in
-            XCTAssert(error != "", "Json is invalid - error: \(error)")
-            exp.fulfill()
-        }
-        
-        waitForIt()
-    }
-    
     func testMovieViewModel() {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
@@ -116,7 +84,7 @@ class DCTheMovieTests: XCTestCase {
             XCTAssert(count == 5, "Total movies from [Movies] is correct")
             
             if let movie = mvm.movieAtIndex(0) {
-                XCTAssert(movie.title == "?!?!?", "Movie at index is correct")
+                XCTAssert(movie.title == "Zombie Strippers!", "Movie at index is correct")
             } else {
                 XCTFail("It should return a movie")
             }
@@ -136,9 +104,16 @@ class DCTheMovieTests: XCTestCase {
     func testMovieModelBackdropImage() {
         
         let exp = expectation(description: "Load image from invalid path")
-        let dic : Dictionary<String, String> = ["invalid":"data"]
+        var movie : Movie!
         
-        let movie = Movie(dic: dic)
+        do {
+            let decoder = JSONDecoder()
+            let file = Bundle.main.path(forResource: "moviewrongimage", ofType: "json")
+            let data = try String(contentsOfFile: file!).data(using: .utf8)
+            movie = try decoder.decode(Movie.self, from: data!)
+        } catch {
+            
+        }
         
         movie.loadBackdropImage { (image) in
             
@@ -152,9 +127,16 @@ class DCTheMovieTests: XCTestCase {
     func testMovieModelBackdropImageImageNotFound() {
         
         let exp = expectation(description: "Load image from invalid path")
-        let dic : Dictionary<String, String> = ["backdrop_path":"/lN6psCG1e6lNopFeLKeWFLsbfLKkkkkk.jpg"]
+        var movie : Movie!
         
-        let movie = Movie(dic: dic)
+        do {
+            let decoder = JSONDecoder()
+            let file = Bundle.main.path(forResource: "moviewrongimage", ofType: "json")
+            let data = try String(contentsOfFile: file!).data(using: .utf8)
+            movie = try decoder.decode(Movie.self, from: data!)
+        } catch {
+            
+        }
         
         movie.loadBackdropImage { (image) in
             
@@ -168,9 +150,16 @@ class DCTheMovieTests: XCTestCase {
     func testMovieModelCoverImage() {
         
         let exp = expectation(description: "Load image from invalid path")
-        let dic : Dictionary<String, String> = ["invalid":"data"]
+        var movie : Movie!
         
-        let movie = Movie(dic: dic)
+        do {
+            let decoder = JSONDecoder()
+            let file = Bundle.main.path(forResource: "moviewrongimage", ofType: "json")
+            let data = try String(contentsOfFile: file!).data(using: .utf8)
+            movie = try decoder.decode(Movie.self, from: data!)
+        } catch {
+            
+        }
         movie.loadCoverImage { (image) in
             
             XCTAssert(image!.isEqual(UIImage(named: "coverplaceholder")), "Fail to load image, returned a placeholder")
@@ -183,9 +172,16 @@ class DCTheMovieTests: XCTestCase {
     func testMovieModelCoverImageImageNotFound() {
         
         let exp = expectation(description: "Load image from invalid path")
-        let dic : Dictionary<String, String> = ["poster_path":"/fdJlgLScCNDdH0LFhqWLFrURh94kkkkk.jpg"]
+        var movie : Movie!
         
-        let movie = Movie(dic: dic)
+        do {
+            let decoder = JSONDecoder()
+            let file = Bundle.main.path(forResource: "moviewrongimage", ofType: "json")
+            let data = try String(contentsOfFile: file!).data(using: .utf8)
+            movie = try decoder.decode(Movie.self, from: data!)
+        } catch {
+            
+        }
         movie.loadCoverImage { (image) in
             
             XCTAssert(image!.isEqual(UIImage(named: "coverplaceholder")), "Fail to load image, returned a placeholder")

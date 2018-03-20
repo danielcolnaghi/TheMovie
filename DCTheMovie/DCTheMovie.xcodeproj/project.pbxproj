@@ -19,7 +19,15 @@
 		6501D7C51EA791F90080CE08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6501D7C31EA791F90080CE08 /* LaunchScreen.storyboard */; };
 		6501D7D01EA791F90080CE08 /* DCTheMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6501D7CF1EA791F90080CE08 /* DCTheMovieTests.swift */; };
 		6501D7DB1EA791F90080CE08 /* DCTheMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6501D7DA1EA791F90080CE08 /* DCTheMovieUITests.swift */; };
+		650715D920596BB400362949 /* moviewrongimage.json in Resources */ = {isa = PBXBuildFile; fileRef = 650715D720596BB300362949 /* moviewrongimage.json */; };
+		650715DA20596BB400362949 /* movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 650715D820596BB300362949 /* movie.json */; };
+		650715DB20596D5400362949 /* movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 650715D820596BB300362949 /* movie.json */; };
+		650715DC20596D5400362949 /* moviewrongimage.json in Resources */ = {isa = PBXBuildFile; fileRef = 650715D720596BB300362949 /* moviewrongimage.json */; };
+		650715DD20596D5500362949 /* movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 650715D820596BB300362949 /* movie.json */; };
+		650715DE20596D5500362949 /* moviewrongimage.json in Resources */ = {isa = PBXBuildFile; fileRef = 650715D720596BB300362949 /* moviewrongimage.json */; };
 		650BCEE52020EA3900445BC2 /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BCEE42020EA3900445BC2 /* QueryResult.swift */; };
+		652DE4E020596E3900A5A914 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 65CF09DC1FBB8838008EBB6E /* invalid.json */; };
+		652DE4E120596E3A00A5A914 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 65CF09DC1FBB8838008EBB6E /* invalid.json */; };
 		657B94F91EA8E1F200FA2E95 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B94F81EA8E1F200FA2E95 /* MovieAPI.swift */; };
 		657B94FD1EA8E2DC00FA2E95 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B94FC1EA8E2DC00FA2E95 /* Movie.swift */; };
 		65CF09DB1FBB8097008EBB6E /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 65CF09DA1FBB8097008EBB6E /* movies.json */; };
@@ -75,6 +83,8 @@
 		6501D7D61EA791F90080CE08 /* DCTheMovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTheMovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6501D7DA1EA791F90080CE08 /* DCTheMovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCTheMovieUITests.swift; sourceTree = "<group>"; };
 		6501D7DC1EA791F90080CE08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650715D720596BB300362949 /* moviewrongimage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moviewrongimage.json; sourceTree = "<group>"; };
+		650715D820596BB300362949 /* movie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie.json; sourceTree = "<group>"; };
 		650BCEE42020EA3900445BC2 /* QueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QueryResult.swift; path = Model/QueryResult.swift; sourceTree = "<group>"; };
 		657B94F81EA8E1F200FA2E95 /* MovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieAPI.swift; path = Stores/MovieAPI.swift; sourceTree = "<group>"; };
 		657B94FC1EA8E2DC00FA2E95 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = Model/Movie.swift; sourceTree = "<group>"; };
@@ -255,6 +265,8 @@
 		65CF09D91FBB805C008EBB6E /* stubs */ = {
 			isa = PBXGroup;
 			children = (
+				650715D820596BB300362949 /* movie.json */,
+				650715D720596BB300362949 /* moviewrongimage.json */,
 				65CF09DA1FBB8097008EBB6E /* movies.json */,
 				65CF09DC1FBB8838008EBB6E /* invalid.json */,
 				65CF09E01FBB929C008EBB6E /* big.json */,
@@ -384,8 +396,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650715DE20596D5500362949 /* moviewrongimage.json in Resources */,
 				6501D7C51EA791F90080CE08 /* LaunchScreen.storyboard in Resources */,
 				6501D7C21EA791F90080CE08 /* Assets.xcassets in Resources */,
+				652DE4E020596E3900A5A914 /* invalid.json in Resources */,
+				650715DD20596D5500362949 /* movie.json in Resources */,
 				65CF09DF1FBB90CB008EBB6E /* movies.json in Resources */,
 				65CF09E11FBB929C008EBB6E /* big.json in Resources */,
 				6501D7C01EA791F90080CE08 /* Main.storyboard in Resources */,
@@ -396,6 +411,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650715D920596BB400362949 /* moviewrongimage.json in Resources */,
+				650715DA20596BB400362949 /* movie.json in Resources */,
 				65CF09DB1FBB8097008EBB6E /* movies.json in Resources */,
 				65CF09DD1FBB8838008EBB6E /* invalid.json in Resources */,
 				65CF09E21FBB929C008EBB6E /* big.json in Resources */,
@@ -406,8 +423,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650715DC20596D5400362949 /* moviewrongimage.json in Resources */,
 				65CF09E31FBB929C008EBB6E /* big.json in Resources */,
 				65CF09DE1FBB8CA2008EBB6E /* movies.json in Resources */,
+				652DE4E120596E3A00A5A914 /* invalid.json in Resources */,
+				650715DB20596D5400362949 /* movie.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,14 +480,12 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -484,14 +502,12 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -523,14 +539,12 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

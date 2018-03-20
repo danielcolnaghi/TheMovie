@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 import AlamofireImage
-import SwiftyJSON
+
 #if DEBUG
 import OHHTTPStubs
 #endif
@@ -92,7 +92,7 @@ class MovieAPI {
                     let decoder = JSONDecoder()
                     let queryResult = try decoder.decode(QueryResult.self, from: data)
 
-                    success(queryResult.results, queryResult.total_pages)
+                    success(queryResult.results, queryResult.totalPages)
                 } catch {
                     print("\(error.localizedDescription) - JSON decoder fail with data: \(String(data: data, encoding: .utf8) ?? "")")
                     errorMessage("Error parsing JSON")
@@ -101,32 +101,6 @@ class MovieAPI {
             
         }
     }
-    
-//    func parseMovies(_ result: Any) -> (movies: [Movie], pages: Int)? {
-//        let json = JSON(result)
-//
-//        if let error = json.error {
-//            print("\(error.localizedDescription)")
-//            return nil
-//        }
-//
-//        var movies = [Movie]()
-//        var pages = 0
-//
-//        if let resData = json["results"].arrayObject {
-//            for obj in resData as! [[String:AnyObject]] {
-//                let m = Movie(dic: obj)
-//                movies.insert(m, at: 0)
-//            }
-//            pages = json["total_pages"].intValue
-//
-//        } else if let singleMovie = json.dictionaryObject {
-//            let m = Movie(dic: singleMovie)
-//            movies.insert(m, at: 0)
-//        }
-//
-//        return (movies, pages)
-//    }
     
     func downloadImage(_ imagePath: String, withSize size: Int, success: @escaping (UIImage) -> Void, error: @escaping (String) -> Void) -> Void {
 	

@@ -11,7 +11,14 @@ import Foundation
 struct QueryResult: Codable {
     
     var page: Int
-    var total_results: Int
-    var total_pages: Int
+    var totalResults: Int
+    var totalPages: Int
     var results: [Movie]
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
+        case results
+    }
 }
