@@ -22,6 +22,7 @@ class MovieDetailViewModel {
             self.movie.budget = responseMovie.budget
             self.movie.revenue = responseMovie.revenue
             self.movie.runtime = responseMovie.runtime
+            self.movie.overview = responseMovie.overview
             success()
         }) { (error) in
             // TODO: alert user to retry

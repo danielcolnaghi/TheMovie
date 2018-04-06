@@ -11,7 +11,7 @@ import UIKit
 struct Movie: Codable {
     let id : Int
     let title : String?
-    let overview : String?
+    var overview : String?
     var coverPath : String?
 	var voteAvarage : Decimal?
 	let releaseDate : String

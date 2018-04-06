@@ -9,28 +9,21 @@
 import UIKit
 
 class MovieDetailsViewController: UIViewController {
-	
-    @IBOutlet weak var imgBackdrop: UIImageView!
-    @IBOutlet weak var imgCover: UIImageView!
-    @IBOutlet weak var lblTitle: UILabel!
-	@IBOutlet weak var txtOverview: UITextView!
     
+    @IBOutlet var imgFull: UIImageView?
+    @IBOutlet var tblMovieDetails: UITableView?
     @IBOutlet var btnAddMovie: UIBarButtonItem!
     var addMovieSelectedColor: UIColor!
-    
-    @IBOutlet var imgCoverWidth: NSLayoutConstraint!
-    @IBOutlet var imgBackdropHeight: NSLayoutConstraint!
-    
-    @IBOutlet var lblRuntime: UILabel!
-    @IBOutlet var lblBudget: UILabel!
-    @IBOutlet var lblRevenue: UILabel!
-    @IBOutlet var lblReleasedDate: UILabel!
     
     var movieDetailVM : MovieDetailViewModel!
     private var myMoviesVM = MyMoviesViewModel()
     
+    var cellIdList : [String]!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        cellIdList = ["movieBackdropCell","movieTitleCell","movieDetailsCell","movieOverviewCell"]
         
         // Store default value
         addMovieSelectedColor = btnAddMovie.tintColor
@@ -40,40 +33,20 @@ class MovieDetailsViewController: UIViewController {
             btnAddMovie.tintColor = addMovieSelectedColor
         }
         
-        // Load images
-		movieDetailVM.movie.loadBackdropImage(success: { (image) in
-			self.imgBackdrop.image = image
-		})
-
-        movieDetailVM.movie.loadCoverImage(success: { (image) in
-            self.imgCover.image = image
-        })
-        
-        // Get details
-		lblTitle.text = movieDetailVM.movie.title
-		txtOverview.text = movieDetailVM.movie.overview
-        txtOverview.contentOffset = CGPoint.zero
-        lblReleasedDate.text = movieDetailVM.movie.releaseDate
-        
         movieDetailVM.loadDetails {
-            self.lblBudget.text = "\(self.movieDetailVM.movie.budget?.toUSCurrency() ?? "")"
-            self.lblRevenue.text = "\(self.movieDetailVM.movie.revenue?.toUSCurrency() ?? "")"
-            self.lblRuntime.text = "\(self.movieDetailVM.movie.runtime?.toRuntime() ?? "")"
+            self.tblMovieDetails?.reloadData()
         }
+        
+        movieDetailVM.movie.loadBackdropImage(success: { (image) in
+            self.imgFull?.image = image
+        })
 	}
     
     @IBAction func backgropImageTap(_ sender: Any) {
-        self.imgBackdropHeight.constant = self.imgBackdropHeight.constant == 170 ? 280 : 170
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @IBAction func coverImageTap(_ sender: Any) {
-        self.imgCoverWidth.constant = self.imgCoverWidth.constant == 160 ? 80 : 160
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
+//        self.imgBackdropHeight.constant = self.imgBackdropHeight.constant == 170 ? 280 : 170
+//        UIView.animate(withDuration: 0.3) {
+//            self.view.layoutIfNeeded()
+//        }
     }
     
     @IBAction func addMovie(_ sender: Any) {
@@ -87,3 +60,24 @@ class MovieDetailsViewController: UIViewController {
         }
     }
 }
+
+extension MovieDetailsViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdList[indexPath.row]) else {
+            return UITableViewCell()
+        }
+        
+        if var c = cell as? MovieCellBase {
+            c.model = movieDetailVM.movie
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellIdList.count
+    }
+}
+

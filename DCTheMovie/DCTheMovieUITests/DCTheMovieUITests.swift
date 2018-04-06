@@ -26,22 +26,21 @@ class DCTheMovieUITests: XCTestCase {
         app.launchArguments.append("STUBS")
         app.launch()
         
-        let theMoviesButton = app.navigationBars["Details"].buttons["The Movies"]
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Zombie Strippers!"]/*[[".cells.staticTexts[\"Zombie Strippers!\"]",".staticTexts[\"Zombie Strippers!\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
-        app.tables.staticTexts["?!?!?"].tap()
-        theMoviesButton.tap()
-
-        app.tables.staticTexts["Zombie Bite"].tap()
-        theMoviesButton.tap()
+        let detailsNavigationBar = app.navigationBars["Details"]
+        let button = detailsNavigationBar.children(matching: .button).element(boundBy: 1)
+        button.tap()
+        button.tap()
         
-        app.tables.staticTexts["White Zombie"].tap()
+        let theMoviesButton = detailsNavigationBar.buttons["The Movies"]
         theMoviesButton.tap()
-        
-        app.tables.staticTexts["Zombie Strippers!"].tap()
-        // Image tap test
-        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element
-        element.children(matching: .image).element.tap()
-        element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).children(matching: .image).element.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Zombie Bite 2"]/*[[".cells.staticTexts[\"Zombie Bite 2\"]",".staticTexts[\"Zombie Bite 2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCUIDevice.shared.orientation = .landscapeLeft
+        XCUIDevice.shared.orientation = .portrait
+        button.tap()
+        button.tap()
         theMoviesButton.tap()
     }
     
@@ -50,7 +49,7 @@ class DCTheMovieUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments.append("STUBS")
         app.launch()
-
+        
         app.tables.staticTexts["?!?!?"].swipeDown()
         
         let searchForZombiesOrMoviesSearchField = app.searchFields["search for zombies or movies"]
