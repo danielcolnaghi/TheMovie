@@ -52,7 +52,7 @@ class MoviesViewModel {
     
     func movieAtIndex(_ index: Int) -> Movie? {
 
-        guard movies.count > 0 else { return nil }
+        guard movies.indices.contains(index) == false else { return nil }
         
         if movies.count < index + 2 {
             loadMoreMovies {

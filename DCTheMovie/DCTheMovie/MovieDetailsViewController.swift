@@ -64,7 +64,7 @@ class MovieDetailsViewController: UIViewController {
 extension MovieDetailsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdList[indexPath.row]) else {
             return UITableViewCell()
         }
@@ -72,7 +72,7 @@ extension MovieDetailsViewController: UITableViewDataSource {
         if var c = cell as? MovieCellBase {
             c.model = movieDetailVM.movie
         }
-        
+    
         return cell
     }
     

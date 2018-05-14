@@ -43,10 +43,10 @@ extension MyMoviesViewController: UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell : MyMovieCell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as? MyMovieCell else {
+            return UITableViewCell()
+        }
         
-        // Movie cell
-        cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MyMovieCell
         cell.loadCellWithMovie(myMoviesVM.movieAtIndex(indexPath.row)!)
         
         return cell

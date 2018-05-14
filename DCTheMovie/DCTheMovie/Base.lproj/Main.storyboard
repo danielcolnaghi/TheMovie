@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2lZ-np-AaI">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,18 +20,18 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-tO-iKk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="moviecell" id="tn5-Bd-ZOy" customClass="MovieCell" customModule="DCTheMovie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tn5-Bd-ZOy" id="bpP-LN-rQw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wnZ-7C-UKP">
@@ -41,7 +41,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name with a greater tittle tha" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="36r-Zi-umr">
-                                                    <rect key="frame" x="87" y="11" width="218" height="40"/>
+                                                    <rect key="frame" x="87" y="11" width="273" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Foj-z2-GlW"/>
                                                     </constraints>
@@ -50,7 +50,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Avarage 0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbQ-aU-NF3">
-                                                    <rect key="frame" x="87" y="88" width="128" height="21"/>
+                                                    <rect key="frame" x="87" y="88" width="150" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="B9P-RV-7RH"/>
                                                     </constraints>
@@ -59,7 +59,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000-00-00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-j4-e3Y">
-                                                    <rect key="frame" x="225" y="88" width="72" height="21"/>
+                                                    <rect key="frame" x="247" y="88" width="105" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="MwR-RP-M8k"/>
                                                     </constraints>
@@ -97,10 +97,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="moviecellplaceholder" id="gR2-qc-b4o" customClass="MovieCell" customModule="DCTheMovie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="148" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="148" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gR2-qc-b4o" id="nZL-5L-gZ5">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4i-Ya-lOl">
@@ -111,7 +111,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Eod-u4-poS">
-                                                    <rect key="frame" x="87" y="11" width="218" height="21"/>
+                                                    <rect key="frame" x="87" y="11" width="273" height="21"/>
                                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80005055670000003" blue="0.79990351199999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="hvv-SQ-aJf"/>
@@ -121,7 +121,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UzT-in-WgM">
-                                                    <rect key="frame" x="237" y="88" width="68" height="21"/>
+                                                    <rect key="frame" x="253.5" y="88" width="106.5" height="21"/>
                                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80005055670000003" blue="0.79990351199999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="gBU-al-bd5"/>
@@ -131,7 +131,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSL-fH-Ifg">
-                                                    <rect key="frame" x="87" y="88" width="96" height="21"/>
+                                                    <rect key="frame" x="87" y="88" width="112.5" height="21"/>
                                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80005055670000003" blue="0.79990351199999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="0Fr-iA-v3x"/>
@@ -194,7 +194,7 @@
                 <navigationController id="xMD-Ra-gde" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Movies" image="MyMovies" id="Nzp-4G-npZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LNc-qo-Mpn">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -211,7 +211,7 @@
                 <navigationController id="8qh-mL-Rpz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="MFd-A7-Hgt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z9M-7t-Cun">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -225,17 +225,17 @@
         <!--About-->
         <scene sceneID="ygA-1g-tci">
             <objects>
-                <viewController id="sh3-1J-d0q" sceneMemberID="viewController">
+                <viewController id="sh3-1J-d0q" customClass="AboutViewController" customModule="DCTheMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EUV-dG-uRN"/>
                         <viewControllerLayoutGuide type="bottom" id="TSN-Ls-yq8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2US-xr-yTo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About The Movies - Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP4-2C-F8R">
-                                <rect key="frame" x="16" y="72" width="280" height="40"/>
+                                <rect key="frame" x="16" y="72" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3ab-Hq-0Zl"/>
                                 </constraints>
@@ -244,11 +244,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWO-Ms-abw">
-                                <rect key="frame" x="8" y="120" width="304" height="399"/>
+                                <rect key="frame" x="8" y="120" width="359" height="440"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">The Movies is an application to save your must watch list. It been develop to share a simple example of how to implement code coverage, MVVM and others things.  For those who want to know more about the code, follow my github. https://github.com/danielcolnaghi/TheMovie  More apps and games from Cold Mass https://itunes.apple.com/us/developer/colnaghi/id543689206 </string>
+                                        <string key="content">The Movies is an application to save your must watch list. It been develop to share a simple example of how to implement code coverage, MVVM and others things like InApp and Ads.  For those who want to know more about the code, follow my github. https://github.com/danielcolnaghi/TheMovie  More apps and games from Cold Mass https://itunes.apple.com/us/developer/colnaghi/id543689206 </string>
                                         <attributes>
                                             <font key="NSFont" size="16" name="Futura-CondensedMedium"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -258,20 +258,32 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6X-Vf-Ovp">
+                                <rect key="frame" x="106" y="568" width="163" height="30"/>
+                                <state key="normal" title="Donate and remove ads"/>
+                                <connections>
+                                    <action selector="btnDonate_Touch:" destination="sh3-1J-d0q" eventType="touchUpInside" id="DNK-Ra-vlB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xWO-Ms-abw" firstAttribute="top" secondItem="RP4-2C-F8R" secondAttribute="bottom" constant="8" id="2fl-Di-LXL"/>
                             <constraint firstItem="RP4-2C-F8R" firstAttribute="leading" secondItem="2US-xr-yTo" secondAttribute="leadingMargin" id="58b-Ka-PZU"/>
+                            <constraint firstItem="W6X-Vf-Ovp" firstAttribute="top" secondItem="xWO-Ms-abw" secondAttribute="bottom" constant="8" id="6Nj-7m-Gdo"/>
                             <constraint firstItem="RP4-2C-F8R" firstAttribute="top" secondItem="EUV-dG-uRN" secondAttribute="bottom" constant="8" id="6g5-as-agB"/>
                             <constraint firstItem="xWO-Ms-abw" firstAttribute="leading" secondItem="2US-xr-yTo" secondAttribute="leading" constant="8" id="AF0-NL-MTp"/>
+                            <constraint firstItem="W6X-Vf-Ovp" firstAttribute="centerX" secondItem="2US-xr-yTo" secondAttribute="centerX" id="BjY-qV-Wpt"/>
                             <constraint firstAttribute="trailing" secondItem="xWO-Ms-abw" secondAttribute="trailing" constant="8" id="R47-qD-C3M"/>
-                            <constraint firstItem="TSN-Ls-yq8" firstAttribute="top" secondItem="xWO-Ms-abw" secondAttribute="bottom" id="eAe-uG-a6q"/>
+                            <constraint firstItem="TSN-Ls-yq8" firstAttribute="top" secondItem="W6X-Vf-Ovp" secondAttribute="bottom" constant="20" id="UXj-zY-rUg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RP4-2C-F8R" secondAttribute="trailing" constant="8" id="i2m-1C-Q0j"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="About" id="gbO-ep-xa3"/>
                     <navigationItem key="navigationItem" title="About" id="tJS-EU-he8"/>
+                    <connections>
+                        <outlet property="btnDonate" destination="W6X-Vf-Ovp" id="K49-3p-dLo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dL8-fC-aiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -286,31 +298,31 @@
                         <viewControllerLayoutGuide type="bottom" id="UNd-65-Wkt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Smk-0n-uQq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ts4-1p-DDv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="moviecell" id="l8b-us-Zy9" customClass="MyMovieCell" customModule="DCTheMovie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="160"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="moviecell" id="l8b-us-Zy9" customClass="MyMovieCell" customModule="DCTheMovie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8b-us-Zy9" id="hRo-ws-Vkr">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abj-hH-VNn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="568" height="160"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TitleFadeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="mii-bb-Tef">
-                                                    <rect key="frame" x="0.0" y="0.0" width="568" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="VH8-gp-ngR"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dws-cO-iSv">
-                                                    <rect key="frame" x="15" y="11" width="538" height="32"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="lKc-K6-V79"/>
                                                     </constraints>
@@ -393,7 +405,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="Movies" image="Movies" id="RAN-X5-3Hj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l8Q-RX-uPM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -413,22 +425,22 @@
                         <viewControllerLayoutGuide type="bottom" id="VY1-Nt-LxL"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="5ve-mj-k9W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ke0-zQ-j8G">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieBackdropCell" rowHeight="170" id="NDQ-XU-dHY" customClass="MovieBackdropCell" customModule="DCTheMovie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="170"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NDQ-XU-dHY" id="vox-1b-L4A">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wideplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="HbK-oM-lp4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="170" id="7fO-7a-1Jr"/>
@@ -460,14 +472,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieTitleCell" id="l4D-XV-CXo" customClass="MovieTitleCell" customModule="DCTheMovie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="198" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="198" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l4D-XV-CXo" id="s3v-J5-8rE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es1-Y2-Wdc">
-                                                    <rect key="frame" x="8" y="6" width="304" height="32"/>
+                                                    <rect key="frame" x="8" y="6" width="359" height="32"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -485,10 +497,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieDetailsCell" rowHeight="51" id="X3p-5v-ekd" customClass="MovieDetailsCell" customModule="DCTheMovie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="242" width="320" height="51"/>
+                                        <rect key="frame" x="0.0" y="242" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X3p-5v-ekd" id="Q1c-nn-nvd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzr-5S-P9w">
@@ -547,7 +559,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Twu-Kq-XNh">
-                                                    <rect key="frame" x="188" y="0.0" width="132" height="51.5"/>
+                                                    <rect key="frame" x="243" y="0.0" width="132" height="51.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABh-bT-Anr">
                                                             <rect key="frame" x="47.5" y="26" width="76.5" height="25.5"/>
@@ -621,14 +633,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieOverviewCell" rowHeight="194" id="u5X-tT-1hk" customClass="MovieDescriptionCell" customModule="DCTheMovie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="293" width="320" height="194"/>
+                                        <rect key="frame" x="0.0" y="293" width="375" height="194"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u5X-tT-1hk" id="1IM-4q-d80">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="194"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRQ-zP-pJC">
-                                                    <rect key="frame" x="4" y="11" width="312" height="172"/>
+                                                    <rect key="frame" x="4" y="11" width="367" height="172"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="3ZS-bJ-btF"/>
                                                     </constraints>
@@ -655,7 +667,7 @@
                                 </connections>
                             </tableView>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wideplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="dXS-9I-P4p">
-                                <rect key="frame" x="0.0" y="32" width="568" height="256"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
@@ -672,6 +684,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="ke0-zQ-j8G"/>
                                 <exclude reference="dXS-9I-P4p"/>
                             </mask>
                         </variation>
@@ -679,6 +692,22 @@
                             <mask key="subviews">
                                 <exclude reference="ke0-zQ-j8G"/>
                                 <include reference="dXS-9I-P4p"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="dXS-9I-P4p"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ke0-zQ-j8G"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="ke0-zQ-j8G"/>
+                                <exclude reference="dXS-9I-P4p"/>
                             </mask>
                         </variation>
                     </view>
