@@ -15,17 +15,18 @@ import OHHTTPStubs
 #endif
 
 struct MovieParams {
+    
+    enum MovieType {
+        case discover
+        case search
+    }
+    
     var page: Int
     var query: String
-    var type: String
+    var type: MovieType
 }
 
 class MovieAPI {
-    
-    private static let apiURL = "https://api.themoviedb.org/3/"
-    private static let apiKey = "1f54bd990f1cdfb230adb312546d765d" //Test Key 1f54bd990f1cdfb230adb312546d765d
-    private static let apiImageURL = "https://image.tmdb.org/t/p/w"
-	private static let defaultProperties = "&language=en-US&include_adult=false&include_video=false" //&sort_by=popularity.desc
     
     init() {
         
@@ -50,7 +51,7 @@ class MovieAPI {
     
     func movieDetailsWithId(_ movieId: Int, success: @escaping (_ movie: Movie) -> Void, errorMessage: @escaping (String) -> Void) {
         
-        let url = "\(MovieAPI.apiURL)movie/\(movieId)?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)"
+        guard let url = try? APIRouter.movie(id: movieId).asURLRequest() else { return }
         
         Alamofire.request(url).responseJSON { (response) in
             
@@ -75,11 +76,23 @@ class MovieAPI {
     
     func moviesWithParams(_ params: MovieParams, success: @escaping (_ movies: [Movie],_ pages: Int) -> Void, errorMessage: @escaping (String) -> Void) {
         
-        let q = params.query.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        var url: URLRequest?
         
-        let url = "\(MovieAPI.apiURL)\(params.type)/movie?api_key=\(MovieAPI.apiKey)\(MovieAPI.defaultProperties)&query=\(q)&page=\(params.page)"
+        if params.type == .search {
+            let q = params.query.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            url = try? APIRouter.movieQuery(query: q, page: params.page).asURLRequest()
+            
+        } else if params.type == .discover {
+            url = try? APIRouter.movieDiscover(page: params.page).asURLRequest()
+        }
         
-        Alamofire.request(url).responseJSON { (response) in
+        guard let requestUrl = url else {
+            errorMessage("Request URL error")
+            return
+        }
+        
+        Alamofire.request(requestUrl).responseJSON { (response) in
             
             if let error = response.error {
                 errorMessage("Error getting response from server. \(error.localizedDescription)")
@@ -104,7 +117,8 @@ class MovieAPI {
     
     func downloadImage(_ imagePath: String, withSize size: Int, success: @escaping (UIImage) -> Void, error: @escaping (String) -> Void) -> Void {
 	
-		let url = "\(MovieAPI.apiImageURL)\(size)\(imagePath)"
+        guard let url = try? APIRouter.image(size: size, path: imagePath).asURLRequest() else { return }
+        
 		Alamofire.request(url).responseImage { (response) in
             
             if let e = response.result.error {

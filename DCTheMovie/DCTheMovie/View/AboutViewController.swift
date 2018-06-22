@@ -11,7 +11,7 @@ import StoreKit
 
 class AboutViewController: UIViewController {
     
-    @IBOutlet var btnDonate: UIButton!
+    @IBOutlet var btnDonate: UIButton?
     
     private var productsRequest = SKProductsRequest()
     private var productDonate: SKProduct?
@@ -23,8 +23,8 @@ class AboutViewController: UIViewController {
             self.navigationController?.navigationBar.prefersLargeTitles = true
         }
         
-        btnDonate.isHidden = true
-//        fetchAvailableProducts()
+        btnDonate?.isHidden = true
+        fetchAvailableProducts()
     }
     
     @IBAction func btnDonate_Touch(_ sender: UIButton) {
@@ -35,15 +35,15 @@ class AboutViewController: UIViewController {
     }
     
     func productPurchased() {
-        btnDonate.isHidden = false
-        btnDonate.setTitle("Thanks for your donation!", for: .normal)
-        btnDonate.isUserInteractionEnabled = false
+        btnDonate?.isHidden = false
+        btnDonate?.setTitle("Thanks for your donation!", for: .normal)
+        btnDonate?.isUserInteractionEnabled = false
     }
     
     // MARK: In-App Purchase
     func fetchAvailableProducts() {
         
-        let productIdentifiers = NSSet(objects: "DonateAndRemoveAds")
+        let productIdentifiers = NSSet(objects: "Donate")
         
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
         productsRequest.delegate = self
@@ -61,8 +61,6 @@ class AboutViewController: UIViewController {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(self)
             SKPaymentQueue.default().add(payment)
-            
-            print("PRODUCT TO PURCHASE: \(product.productIdentifier)")
         }
     }
 }
@@ -71,7 +69,7 @@ extension AboutViewController: SKProductsRequestDelegate, SKPaymentTransactionOb
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         
         if (response.products.count > 0) {
-            btnDonate.isHidden = false
+            btnDonate?.isHidden = false
             
             productDonate = response.products[0]
             if let product = productDonate {
@@ -81,13 +79,12 @@ extension AboutViewController: SKProductsRequestDelegate, SKPaymentTransactionOb
                 numberFormatter.locale = product.priceLocale
                 let price1Str = numberFormatter.string(from: product.price)
                 
-                // Donate and remove ads
+                // Donate
                 let message = "\(product.localizedDescription) \(price1Str!)"
-                btnDonate.setTitle(message, for: .normal)
+                btnDonate?.setTitle(message, for: .normal)
             }
         }
         
-        restorePurchase()
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
@@ -100,17 +97,17 @@ extension AboutViewController: SKProductsRequestDelegate, SKPaymentTransactionOb
             if let trans = transaction as? SKPaymentTransaction {
                 switch trans.transactionState {
                 case .purchased:
-                    print("purchased")
+                    // Purchased
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     productPurchased()
                     break
                     
                 case .failed:
-                    print("failed")
+                    // Failed
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     break
                 case .restored:
-                    print("restored")
+                    // Restored
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     productPurchased()
                     break

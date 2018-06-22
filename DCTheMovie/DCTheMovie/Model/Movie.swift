@@ -9,16 +9,16 @@
 import UIKit
 
 struct Movie: Codable {
-    let id : Int
-    let title : String?
-    var overview : String?
-    var coverPath : String?
-	var voteAvarage : Decimal?
-	let releaseDate : String
-	var backdropPath : String?
-    var budget : Int?
-    var revenue : Int?
-    var runtime : Int?
+    let id: Int
+    let title: String?
+    var overview: String?
+    var coverPath: String?
+	var voteAvarage: Decimal?
+	let releaseDate: String
+	var backdropPath: String?
+    var budget: Int?
+    var revenue: Int?
+    var runtime: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -84,11 +84,13 @@ extension Int {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "en-US")
         formatter.numberStyle = .currency
+        
+        var retValue = ""
         if let formattedTipAmount = formatter.string(from: self as NSNumber) {
-            return formattedTipAmount
-        } else {
-            return ""
+            retValue = formattedTipAmount
         }
+        
+        return retValue
     }
     
     func toRuntime() -> String {

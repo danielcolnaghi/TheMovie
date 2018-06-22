@@ -43,7 +43,7 @@ class DCTheMovieTests: XCTestCase {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         
-        let param = MovieParams(page: 1, query: "", type: "discover")
+        let param = MovieParams(page: 1, query: "", type: .discover)
         MovieAPI().moviesWithParams(param, success: { (movies, pages) in
             XCTAssert(movies.count == 5, "Total movies test")
             XCTAssert(pages == 1, "Page count test")
@@ -60,7 +60,7 @@ class DCTheMovieTests: XCTestCase {
         let exp = expectation(description: "Get data from stubs")
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         
-        let param = MovieParams(page: 1, query: "", type: "search")
+        let param = MovieParams(page: 1, query: "", type: .search)
         MovieAPI().moviesWithParams(param, success: { (movies, pages) in
             XCTAssert(movies.count == 5, "Total movies test")
             XCTAssert(pages == 1, "Page count test")
@@ -80,7 +80,7 @@ class DCTheMovieTests: XCTestCase {
        let mvm = MoviesViewModel()
         mvm.loadMovies {
             
-            var count = mvm.countMovies()
+            var count = mvm.countMovies
             XCTAssert(count == 5, "Total movies from [Movies] is correct")
             
             if let movie = mvm.movieAtIndex(0) {
@@ -90,7 +90,7 @@ class DCTheMovieTests: XCTestCase {
             }
             
             mvm.removeAllMovies()
-            count = mvm.countMovies()
+            count = mvm.countMovies
             XCTAssert(count == 0, "Removed all itens from [Movies]")
             
             XCTAssert(mvm.movieAtIndex(0) == nil, "Removed all itens from [Movies]")
@@ -199,7 +199,7 @@ class DCTheMovieTests: XCTestCase {
             mvm.loadMovies {}
             
             stubRequestFor(path: "/movie", jsonFile: "movies.json")
-            let param = MovieParams(page: 1, query: "", type: "search")
+            let param = MovieParams(page: 1, query: "", type: .search)
             MovieAPI().moviesWithParams(param, success: { (movies, pages) in }) { (error) in }
         }
     }

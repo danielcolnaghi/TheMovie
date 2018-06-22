@@ -80,10 +80,10 @@ extension MovieViewController: UISearchBarDelegate {
     
     func search(_ searchBar: UISearchBar) {
         if let t = searchBar.text, !t.isEmpty {
-            moviesVM.params.type = "search"
+            moviesVM.params.type = .search
             moviesVM.params.query = t
         } else {
-            moviesVM.params.type = "discover"
+            moviesVM.params.type = .discover
             moviesVM.params.query = ""
         }
         
@@ -103,7 +103,7 @@ extension MovieViewController: UISearchBarDelegate {
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return loadingPlaceholder ? 5 : moviesVM.countMovies()
+        return loadingPlaceholder ? 5 : moviesVM.countMovies
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,14 +116,17 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
         } else {
             // Movie cell
             cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
-            cell.loadCellWithMovie(moviesVM.movieAtIndex(indexPath.row)!)
-            if indexPath.row % 2 > 0 {
-                cell.backgroundColor = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1.0)
-            } else {
-                cell.backgroundColor = UIColor.white
+            
+            if let movie = moviesVM.movieAtIndex(indexPath.row) {
+                cell.movie = movie
+                if indexPath.row % 2 > 0 {
+                    cell.backgroundColor = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1.0)
+                } else {
+                    cell.backgroundColor = UIColor.white
+                }
+                // MoviesViewModel will try to call another page when the last index cell is called
+                // This will send a response when done
             }
-            // MoviesViewModel will try to call another page when the last index cell is called
-            // This will send a response when done
         }
         
         return cell

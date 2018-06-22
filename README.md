@@ -9,16 +9,23 @@ If you want to know more about this API follow  [The Movie API](https://www.them
 
 - List  of movies
 - Search movies
-- Movie details (with more info now)
--  Favorite a movie
+- Movie details (name, image, runtime, budget, relesead date, revenue, details)
+- Add movie to Must Watch list
+- Add movie to Watched list
+- In App Purchase
 
 ## Other implementations
 
-- UI improvements using UIDynamics to animate cover image and cnahges the cell background color to differ the following cell.
+- UI improvements using `UIDynamics` to animate cover image. 
+- Minor ajustments in UI.
+- About screen with some info about this project.
+- Code improvements in API class, I created another layer to manage API URL based in [Alaeddine' Medium](https://medium.com/@AladinWay/write-a-networking-layer-in-swift-4-using-alamofire-and-codable-part-1-api-router-349699a47569).
+- Changes in the Data Access layer and how it is managed.
+- Implemented the `Codable` protocol in models.
 
 ## Code coverage
 
-More than 89% with UI test included.
+More than 84% with UI test included.
 
 ## Build
 
@@ -32,7 +39,6 @@ pod update
 ```
 pod 'Alamofire', '~> 4.4'
 pod 'AlamofireImage'
-pod 'SwiftyJSON'
 pod 'OHHTTPStubs/Swift', '~> 6.0.0'
 ```
 
@@ -44,10 +50,7 @@ I also uploaded in this repository a [Sketch](https://www.sketchapp.com) file wi
 
 [Phelippe](https://github.com/phyll88) with your amazing knowledge with size class and constraints.
 
-## Next Steps
+## Next steps
 
-- About
-- Re order my movies
-- Custom transactions
-- UI Improvements
-- Tag movie as watched
+- Re order Must Watch and Watched lists.
+- Custom transactions.

@@ -17,11 +17,16 @@ class MovieDetailsViewController: UIViewController {
     
     var movieDetailVM : MovieDetailViewModel!
     private var myMoviesVM = MyMoviesViewModel()
+    private var whatchedMoviesVM = WatchedMoviesViewModel()
     
     var cellIdList : [String]!
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
         
         cellIdList = ["movieBackdropCell","movieTitleCell","movieDetailsCell","movieOverviewCell"]
         
@@ -29,8 +34,8 @@ class MovieDetailsViewController: UIViewController {
         addMovieSelectedColor = btnAddMovie.tintColor
         btnAddMovie.tintColor = nil
         
-        if myMoviesVM.hasMovie(movieDetailVM.movie) {
-            btnAddMovie.tintColor = addMovieSelectedColor
+        if myMoviesVM.hasMovie(movieDetailVM.movie) || whatchedMoviesVM.hasMovie(movieDetailVM.movie) {
+            btnAddMovie.isEnabled = false
         }
         
         movieDetailVM.loadDetails {
@@ -41,13 +46,6 @@ class MovieDetailsViewController: UIViewController {
             self.imgFull?.image = image
         })
 	}
-    
-    @IBAction func backgropImageTap(_ sender: Any) {
-//        self.imgBackdropHeight.constant = self.imgBackdropHeight.constant == 170 ? 280 : 170
-//        UIView.animate(withDuration: 0.3) {
-//            self.view.layoutIfNeeded()
-//        }
-    }
     
     @IBAction func addMovie(_ sender: Any) {
         

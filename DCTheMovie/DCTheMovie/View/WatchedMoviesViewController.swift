@@ -1,16 +1,16 @@
 //
-//  MyMoviesViewController.swift
+//  WatchedMoviesViewController.swift
 //  DCTheMovie
 //
-//  Created by Daniel Colnaghi on 30/11/17.
-//  Copyright © 2017 Cold Mass Digital Entertainment. All rights reserved.
+//  Created by Daniel Colnaghi on 22/06/18.
+//  Copyright © 2018 Cold Mass Digital Entertainment. All rights reserved.
 //
 
 import UIKit
 
-class MyMoviesViewController: UIViewController {
+class WatchedMoviesViewController: UIViewController {
 
-    var myMoviesVM = MyMoviesViewModel()
+    var myMoviesVM = WatchedMoviesViewModel()
     @IBOutlet weak var tblMovies: UITableView!
     
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class MyMoviesViewController: UIViewController {
     }
 }
 
-extension MyMoviesViewController: UITableViewDelegate, UITableViewDataSource  {
+extension WatchedMoviesViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return myMoviesVM.countMovies
@@ -55,7 +55,7 @@ extension MyMoviesViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let data = myMoviesVM.movieAtIndex(indexPath.row)
-        performSegue(withIdentifier: "segueMyMovies", sender: data)
+        performSegue(withIdentifier: "watchedMoviesSegue", sender: data)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -63,28 +63,15 @@ extension MyMoviesViewController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let act1 = UITableViewRowAction(style: .normal, title: "Watched") { (rowAction, index) in
-            if let movie = self.myMoviesVM.movieAtIndex(indexPath.row) {
-
-                // Add movie to watched list
-                self.myMoviesVM.moveToWatchedList(Movie: movie)
-                self.myMoviesVM.removeMovie(movie)
-                
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
-        }
-        act1.backgroundColor = UIColor.blue
         
-        let act2 = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, index) in
+        let deleteAct = UITableViewRowAction(style: .destructive, title: "Remove") { (rowAction, index) in
             if let movie = self.myMoviesVM.movieAtIndex(indexPath.row) {
-
-                // Remove movie from must watch list
+                // Remove movie from watched list
                 self.myMoviesVM.removeMovie(movie)
-                
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
-        // Set Watched and Delete action
-        return [act2, act1]
+
+        return [deleteAct]
     }
 }

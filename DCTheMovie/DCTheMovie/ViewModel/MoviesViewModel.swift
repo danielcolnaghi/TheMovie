@@ -18,7 +18,7 @@ class MoviesViewModel {
 
 	private var movies: [Movie] = [Movie]()
     private var pages: Int = 0
-    var params = MovieParams(page: 1, query: "", type: "discover")
+    var params = MovieParams(page: 1, query: "", type: .discover)
 	
     func loadMovies(success: @escaping () -> Void) {
         
@@ -46,13 +46,13 @@ class MoviesViewModel {
         movies.removeAll()
     }
     
-    func countMovies() -> Int {
+    var countMovies: Int {
         return movies.count
     }
     
     func movieAtIndex(_ index: Int) -> Movie? {
 
-        guard movies.indices.contains(index) == false else { return nil }
+        guard movies.indices.contains(index) == true else { return nil }
         
         if movies.count < index + 2 {
             loadMoreMovies {

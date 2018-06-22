@@ -25,7 +25,13 @@ class MovieCell : UITableViewCell {
     private var dynamicItem: UIDynamicItemBehavior!
     private var push: UIPushBehavior!
     
-	func loadCellWithMovie(_ movie : Movie) {
+    var movie: Movie! {
+        didSet {
+            loadCell()
+        }
+    }
+    
+	private func loadCell() {
         
         animateImage()
         
@@ -41,7 +47,7 @@ class MovieCell : UITableViewCell {
         
         if self.reuseIdentifier == "moviecell" {
             movie.loadCoverImage { (image) in
-                if movie.id == self.movieId {
+                if self.movie.id == self.movieId {
                     self.imgBackground.image = image
                 }
             }

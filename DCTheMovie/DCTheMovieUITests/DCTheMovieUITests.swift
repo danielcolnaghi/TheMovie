@@ -79,15 +79,50 @@ class DCTheMovieUITests: XCTestCase {
         theMoviesButton.tap()
         
         let tabBarsQuery = app.tabBars
-        let myMoviesButton = tabBarsQuery.buttons["My Movies"]
+        let myMoviesButton = tabBarsQuery.buttons["Must Watch"]
         myMoviesButton.tap()
         app.tables.staticTexts["Zombie Strippers!"].tap()
 
-        let myMoviesButtonBack = app.navigationBars["Details"].buttons["My Movies"]
+        let myMoviesButtonBack = app.navigationBars["Details"].buttons["Must Watch"]
         myMoviesButtonBack.tap()
         app.tables.staticTexts["Zombie Strippers!"].swipeLeft()
         app.tables.buttons["Delete"].tap()
         
+    }
+    
+    func testWatchedList() {
+        
+        let app = XCUIApplication()
+        app.launchArguments.append("STUBS")
+        app.launch()
+        
+        let theMoviesButton = app.navigationBars["Details"].buttons["The Movies"]
+        
+        app.tables.staticTexts["Zombie Strippers!"].tap()
+        app.navigationBars["Details"].children(matching: .button).element(boundBy: 1).tap()
+        theMoviesButton.tap()
+        
+        let tabBarsQuery = app.tabBars
+        let myMoviesButton = tabBarsQuery.buttons["Must Watch"]
+        myMoviesButton.tap()
+        app.tables.staticTexts["Zombie Strippers!"].tap()
+        
+        let myMoviesButtonBack = app.navigationBars["Details"].buttons["Must Watch"]
+        myMoviesButtonBack.tap()
+        app.tables.staticTexts["Zombie Strippers!"].swipeLeft()
+        app.tables.buttons["Watched"].tap()
+        
+        let watchedButton = tabBarsQuery.buttons["Watched"]
+        watchedButton.tap()
+        
+        app.tables.staticTexts["Zombie Strippers!"].tap()
+        let watchedButtonBack = app.navigationBars["Details"].buttons["Watched"]
+        watchedButtonBack.tap()
+        
+        app.tables.staticTexts["Zombie Strippers!"].swipeLeft()
+        app.tables.buttons["Remove"].tap()
+        
+        sleep(1)
     }
     
     func testAbout() {
@@ -99,6 +134,19 @@ class DCTheMovieUITests: XCTestCase {
         let tabBarsQuery = app.tabBars
         let myMoviesButton = tabBarsQuery.buttons["About"]
         myMoviesButton.tap()
+    }
+    
+    func testAPI() {
         
+        let app = XCUIApplication()
+        app.launch()
+        
+        sleep(1)
+        
+        for x in 0...5 {
+            app.tables.cells.element(boundBy: x*5).firstMatch.swipeUp()
+        }
+
+        sleep(1)
     }
 }

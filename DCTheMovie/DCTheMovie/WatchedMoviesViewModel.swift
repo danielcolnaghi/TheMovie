@@ -1,22 +1,22 @@
 //
-//  MyMoviesViewModel.swift
+//  WatchedMoviesViewModel.swift
 //  DCTheMovie
 //
-//  Created by Daniel Colnaghi on 30/11/17.
-//  Copyright © 2017 Cold Mass Digital Entertainment. All rights reserved.
+//  Created by Daniel Colnaghi on 22/06/18.
+//  Copyright © 2018 Cold Mass Digital Entertainment. All rights reserved.
 //
 
 import Foundation
 
-class MyMoviesViewModel {
-   
+class WatchedMoviesViewModel {
+    
     private var movies : [Movie] = [Movie]()
-    private var moviesDA = MustWatchMoviesDA.shared
+    private var moviesDA = WatchedMoviesDA.shared
     
     init() {
         reloadData()
     }
-
+    
     func reloadData() {
         if let m = moviesDA.loadMovies() {
             movies.removeAll()
@@ -52,16 +52,5 @@ class MyMoviesViewModel {
         guard movies.count > 0 else { return nil }
         
         return movies[index]
-    }
-    
-    func moveToWatchedList(Movie movie: Movie) {
-        if var wathedMovies = WatchedMoviesDA.shared.loadMovies() {
-            wathedMovies.append(movie)
-            WatchedMoviesDA.shared.updateMovies(wathedMovies)
-        } else {
-            var wathedMovies = [Movie]()
-            wathedMovies.append(movie)
-            WatchedMoviesDA.shared.updateMovies(wathedMovies)
-        }
     }
 }
