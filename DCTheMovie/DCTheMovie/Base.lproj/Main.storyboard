@@ -265,7 +265,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">The Movies is an application to save your must watch list. It been develop to share a simple example of how to implement code coverage, MVVM and others things like InApp and Ads.  For those who want to know more about the code, follow my github. https://github.com/danielcolnaghi/TheMovie  More apps and games from Cold Mass https://itunes.apple.com/us/developer/colnaghi/id543689206 </string>
+                                        <string key="content">The Movies is an application to save your must watch list. It been develop to share a simple example of how to implement code coverage, MVVM and others things like InApp and Pods.  For those who want to know more about the code, follow my github. https://github.com/danielcolnaghi/TheMovie  More apps and games from Cold Mass Digital Entertainment. https://itunes.apple.com/us/developer/colnaghi/id543689206 </string>
                                         <attributes>
                                             <font key="NSFont" size="16" name="Futura-CondensedMedium"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>

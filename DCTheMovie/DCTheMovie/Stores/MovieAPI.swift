@@ -28,7 +28,9 @@ struct MovieParams {
 
 class MovieAPI {
     
-    init() {
+    static let shared = MovieAPI()
+    
+    private init() {
         
         #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("STUBS") {

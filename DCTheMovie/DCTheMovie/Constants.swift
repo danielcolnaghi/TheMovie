@@ -13,6 +13,7 @@ struct K {
         static let baseURL = "https://api.themoviedb.org/3"
         static let imageURL = "https://image.tmdb.org/t/p/w"
         static let apiKey = "1f54bd990f1cdfb230adb312546d765d"
+//        static let apiKey = "PleaseEnterYourAPIKeyHere"
     }
     
     struct APIParameterKey {
@@ -23,7 +24,6 @@ struct K {
         static let query = "query"
         static let page = "page"
         static let id = "id"
-        
     }
 }
 
