@@ -68,7 +68,7 @@ extension Movie {
     func loadBackdropImage(success: @escaping (UIImage?) -> Void) -> Void {
         
         if let path = backdropPath {
-            MovieAPI.shared.downloadImage(path, withSize: 600, success: { (image) in
+            MovieAPI.shared.downloadImage(path, withSize: 500, success: { (image) in
                 success(image)
             }, error: {_ in
                 success(UIImage(named: "wideplaceholder"))

@@ -107,15 +107,14 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var cell: MovieCell!
-        
         if loadingPlaceholder {
             // Placehold cell
-            cell = tableView.dequeueReusableCell(withIdentifier: "moviecellplaceholder") as! MovieCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "moviecellplaceholder") as? MovieCell else { return UITableViewCell() }
+
+            return cell
         } else {
             // Movie cell
-            cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as! MovieCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "moviecell") as? MovieCell else { return UITableViewCell() }
             
             if let movie = moviesVM.movieAtIndex(indexPath.row) {
                 cell.movie = movie
@@ -127,9 +126,9 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource  {
                 // MoviesViewModel will try to call another page when the last index cell is called
                 // This will send a response when done
             }
+
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

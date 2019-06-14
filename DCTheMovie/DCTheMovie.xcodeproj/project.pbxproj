@@ -325,7 +325,6 @@
 				6501D7B41EA791F80080CE08 /* Frameworks */,
 				6501D7B51EA791F80080CE08 /* Resources */,
 				606439EFE62099CFCFB7EF96 /* [CP] Embed Pods Frameworks */,
-				B4AF3816B280CE5680671B1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,7 +344,6 @@
 				6501D7C81EA791F90080CE08 /* Frameworks */,
 				6501D7C91EA791F90080CE08 /* Resources */,
 				9AACC1FB040CFB9D95D38E94 /* [CP] Embed Pods Frameworks */,
-				8BA40C9583318A770AC2EE70 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,7 +364,6 @@
 				6501D7D31EA791F90080CE08 /* Frameworks */,
 				6501D7D41EA791F90080CE08 /* Resources */,
 				452E7FB963BE9B6834369558 /* [CP] Embed Pods Frameworks */,
-				A220C3BA741A90A5AD7A732F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -520,7 +517,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovieUITests/Pods-DCTheMovieUITests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DCTheMovieUITests/Pods-DCTheMovieUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
@@ -533,7 +530,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovieUITests/Pods-DCTheMovieUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DCTheMovieUITests/Pods-DCTheMovieUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		606439EFE62099CFCFB7EF96 /* [CP] Embed Pods Frameworks */ = {
@@ -542,7 +539,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovie/Pods-DCTheMovie-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DCTheMovie/Pods-DCTheMovie-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
@@ -555,22 +552,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovie/Pods-DCTheMovie-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8BA40C9583318A770AC2EE70 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovieTests/Pods-DCTheMovieTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DCTheMovie/Pods-DCTheMovie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9AACC1FB040CFB9D95D38E94 /* [CP] Embed Pods Frameworks */ = {
@@ -579,7 +561,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovieTests/Pods-DCTheMovieTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DCTheMovieTests/Pods-DCTheMovieTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
@@ -592,37 +574,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovieTests/Pods-DCTheMovieTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A220C3BA741A90A5AD7A732F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovieUITests/Pods-DCTheMovieUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B4AF3816B280CE5680671B1F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCTheMovie/Pods-DCTheMovie-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DCTheMovieTests/Pods-DCTheMovieTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD814D91B104D80DC2FDC996 /* [CP] Check Pods Manifest.lock */ = {
