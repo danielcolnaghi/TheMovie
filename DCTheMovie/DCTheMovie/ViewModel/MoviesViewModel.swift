@@ -22,7 +22,7 @@ class MoviesViewModel {
 	
     func loadMovies(success: @escaping () -> Void) {
         
-        MovieAPI().moviesWithParams(params, success: { (responseMovies, responsePages) in
+        MovieAPI.shared.moviesWithParams(params, success: { (responseMovies, responsePages) in
             self.movies.append(contentsOf: responseMovies)
             self.pages = responsePages
             success()

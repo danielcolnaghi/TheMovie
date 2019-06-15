@@ -24,7 +24,9 @@ class AboutViewController: UIViewController {
         }
         
         btnDonate?.isHidden = true
-        fetchAvailableProducts()
+        DispatchQueue.global(qos: .background).async {
+            self.fetchAvailableProducts()
+        }
     }
     
     @IBAction func btnDonate_Touch(_ sender: UIButton) {
@@ -42,7 +44,7 @@ class AboutViewController: UIViewController {
     
     // MARK: In-App Purchase
     func fetchAvailableProducts() {
-        
+        // Product Identifiers must be created in App Store Connect\Features\In-App Purchases
         let productIdentifiers = NSSet(objects: "Donate")
         
         productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as! Set<String>)
@@ -101,7 +103,6 @@ extension AboutViewController: SKProductsRequestDelegate, SKPaymentTransactionOb
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     productPurchased()
                     break
-                    
                 case .failed:
                     // Failed
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
@@ -116,7 +117,5 @@ extension AboutViewController: SKProductsRequestDelegate, SKPaymentTransactionOb
                 }
             }
         }
-        
-        
     }
 }

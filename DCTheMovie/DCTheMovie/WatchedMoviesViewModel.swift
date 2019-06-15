@@ -33,7 +33,7 @@ class WatchedMoviesViewModel {
     }
     
     func removeMovie(_ movie : Movie) {
-        if let index = movies.index(of: movie) {
+        if let index = movies.firstIndex(of: movie) {
             movies.remove(at: index)
             moviesDA.updateMovies(movies)
         }

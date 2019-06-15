@@ -44,7 +44,7 @@ class DCTheMovieTests: XCTestCase {
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         
         let param = MovieParams(page: 1, query: "", type: .discover)
-        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
+        MovieAPI.shared.moviesWithParams(param, success: { (movies, pages) in
             XCTAssert(movies.count == 5, "Total movies test")
             XCTAssert(pages == 1, "Page count test")
             exp.fulfill()
@@ -61,7 +61,7 @@ class DCTheMovieTests: XCTestCase {
         stubRequestFor(path: "/movie", jsonFile: "movies.json")
         
         let param = MovieParams(page: 1, query: "", type: .search)
-        MovieAPI().moviesWithParams(param, success: { (movies, pages) in
+        MovieAPI.shared.moviesWithParams(param, success: { (movies, pages) in
             XCTAssert(movies.count == 5, "Total movies test")
             XCTAssert(pages == 1, "Page count test")
             exp.fulfill()
@@ -200,7 +200,7 @@ class DCTheMovieTests: XCTestCase {
             
             stubRequestFor(path: "/movie", jsonFile: "movies.json")
             let param = MovieParams(page: 1, query: "", type: .search)
-            MovieAPI().moviesWithParams(param, success: { (movies, pages) in }) { (error) in }
+            MovieAPI.shared.moviesWithParams(param, success: { (movies, pages) in }) { (error) in }
         }
     }
     

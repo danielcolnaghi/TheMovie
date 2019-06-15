@@ -18,7 +18,7 @@ class MovieDetailViewModel {
     
     func loadDetails(success: @escaping () -> Void) {
 
-        MovieAPI().movieDetailsWithId(movie.id, success: { (responseMovie) in
+        MovieAPI.shared.movieDetailsWithId(movie.id, success: { (responseMovie) in
             self.movie.budget = responseMovie.budget
             self.movie.revenue = responseMovie.revenue
             self.movie.runtime = responseMovie.runtime

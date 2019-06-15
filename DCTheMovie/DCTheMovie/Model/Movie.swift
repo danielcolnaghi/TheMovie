@@ -32,35 +32,6 @@ struct Movie: Codable {
         case revenue
         case runtime
     }
-	
-	func loadCoverImage(success: @escaping (UIImage?) -> Void) -> Void {
-
-        if let path = coverPath {
-            MovieAPI().downloadImage(path, withSize: 300, success: { (image) in
-                success(image)
-            }, error: {_ in
-                success(UIImage(named: "coverplaceholder"))
-            })
-            
-        } else {
-            success(UIImage(named: "coverplaceholder"))
-        }
-	}
-
-	func loadBackdropImage(success: @escaping (UIImage?) -> Void) -> Void {
-		
-		if let path = backdropPath {
-            MovieAPI().downloadImage(path, withSize: 600, success: { (image) in
-                success(image)
-            }, error: {_ in
-                success(UIImage(named: "wideplaceholder"))
-            })
-        } else {
-            success(UIImage(named: "wideplaceholder"))
-        }
-	}
-    
-
 }
 
 extension Movie : Equatable {
@@ -74,26 +45,36 @@ extension Movie : Equatable {
 }
 
 extension Movie : Hashable {
-    var hashValue: Int {
-        return id.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id.hashValue)
     }
 }
 
-extension Int {
-    func toUSCurrency() -> String {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en-US")
-        formatter.numberStyle = .currency
+extension Movie {
+    func loadCoverImage(success: @escaping (UIImage?) -> Void) -> Void {
         
-        var retValue = ""
-        if let formattedTipAmount = formatter.string(from: self as NSNumber) {
-            retValue = formattedTipAmount
+        if let path = coverPath {
+            MovieAPI.shared.downloadImage(path, withSize: 300, success: { (image) in
+                success(image)
+            }, error: {_ in
+                success(UIImage(named: "coverplaceholder"))
+            })
+            
+        } else {
+            success(UIImage(named: "coverplaceholder"))
         }
-        
-        return retValue
     }
     
-    func toRuntime() -> String {
-        return "\(self/60)h \((self)%60)m"
+    func loadBackdropImage(success: @escaping (UIImage?) -> Void) -> Void {
+        
+        if let path = backdropPath {
+            MovieAPI.shared.downloadImage(path, withSize: 500, success: { (image) in
+                success(image)
+            }, error: {_ in
+                success(UIImage(named: "wideplaceholder"))
+            })
+        } else {
+            success(UIImage(named: "wideplaceholder"))
+        }
     }
 }
