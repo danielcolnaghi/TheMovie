@@ -50,7 +50,4 @@ I also uploaded in this repository a [Sketch](https://www.sketchapp.com) file wi
 
 [Phelippe](https://github.com/phyll88) with your amazing knowledge with size class and constraints.
 
-## Next steps
 
-- Re order Must Watch and Watched lists.
-- Custom transactions.
