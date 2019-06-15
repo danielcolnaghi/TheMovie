@@ -135,18 +135,4 @@ class DCTheMovieUITests: XCTestCase {
         let myMoviesButton = tabBarsQuery.buttons["About"]
         myMoviesButton.tap()
     }
-    
-    func testAPI() {
-        
-        let app = XCUIApplication()
-        app.launch()
-        
-        sleep(1)
-        
-        for x in 0...5 {
-            app.tables.cells.element(boundBy: x*5).firstMatch.swipeUp()
-        }
-
-        sleep(1)
-    }
 }
