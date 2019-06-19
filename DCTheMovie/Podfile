@@ -3,19 +3,32 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'DCTheMovie' do
-    pod 'Alamofire', '~> 4.4'
-	pod 'AlamofireImage'
-    pod 'OHHTTPStubs/Swift', '~> 6.0.0'
+    pod 'Alamofire', '4.7.1'
+    pod 'AlamofireImage', '3.3.1'
+    pod 'OHHTTPStubs/Swift', '6.0.0'
+    pod 'ReachabilitySwift', '4.3.1'
 end
 
 target 'DCTheMovieTests' do
-    pod 'Alamofire', '~> 4.4'
-    pod 'AlamofireImage'
-    pod 'OHHTTPStubs/Swift', '~> 6.0.0'
+    pod 'Alamofire', '4.7.1'
+    pod 'AlamofireImage', '3.3.1'
+    pod 'OHHTTPStubs/Swift', '6.0.0'
+    pod 'ReachabilitySwift', '4.3.1'
 end
 
 target 'DCTheMovieUITests' do
-    pod 'Alamofire', '~> 4.4'
-    pod 'AlamofireImage'
-    pod 'OHHTTPStubs/Swift', '~> 6.0.0'
+    pod 'Alamofire', '4.7.1'
+    pod 'AlamofireImage', '3.3.1'
+    pod 'OHHTTPStubs/Swift', '6.0.0'
+    pod 'ReachabilitySwift', '4.3.1'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if ['Alamofire', 'AlamofireImage', 'OHHTTPStubs/Swift', 'ReachabilitySwift'].include? target.name
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '4.0'
+      end
+    end
+  end
 end
